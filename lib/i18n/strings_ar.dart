@@ -1,6 +1,6 @@
 part of 'date_picker_i18n.dart';
 
-/// Arabic (ar)
+/// Arabic (AR)
 class _StringsAr extends _StringsI18n {
   const _StringsAr();
 

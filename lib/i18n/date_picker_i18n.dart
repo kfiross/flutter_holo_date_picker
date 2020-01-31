@@ -53,7 +53,7 @@ enum DateTimePickerLocale {
   /// Bengali (BN)
   bn,
 
-  /// Arabic (ar)
+  /// Arabic (AR)
   ar,
 
   /// Japanese (JP)

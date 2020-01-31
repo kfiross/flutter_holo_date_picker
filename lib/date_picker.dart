@@ -18,22 +18,21 @@ class DatePicker {
   /// Display date picker in bottom sheet.
   ///
   /// context: [BuildContext]
-  /// minDateTime: [DateTime] minimum date time
-  /// maxDateTime: [DateTime] maximum date time
+  /// firstDate: [DateTime] minimum date time
+  /// lastDate: [DateTime] maximum date time
   /// initialDateTime: [DateTime] initial date time for selected
   /// dateFormat: [String] date format pattern
   /// locale: [DateTimePickerLocale] internationalization
-  /// pickerMode: [DateTimePickerMode] display mode: date(DatePicker)、time(TimePicker)、datetime(DateTimePicker)
-  /// pickerTheme: [DateTimePickerTheme] the theme of date time picker
-  /// onCancel: [DateVoidCallback] pressed title cancel widget event
-  /// onClose: [DateVoidCallback] date picker closed event
-  /// onChange: [DateValueCallback] selected date time changed event
-  /// onConfirm: [DateValueCallback] pressed title confirm widget event
+  /// backgroundColor: [Color] background color of the dialog
+  /// itemTextStyle: [TextStyle] item TextStyle of the picker
+  /// titleText: [String] text of the dialog's title
+  /// confirmText: [String] text of the dialog's confirm button
+  /// cancelText: [String] text of the dialog's  cancel button
   static Future<DateTime> showSimpleDatePicker(
     BuildContext context, {
-    DateTime minDateTime,
-    DateTime maxDateTime,
-    DateTime initialDateTime,
+    DateTime firstDate,
+    DateTime lastDate,
+    DateTime initialDate,
     String dateFormat,
     DateTimePickerLocale locale: DATETIME_PICKER_LOCALE_DEFAULT,
     DateTimePickerMode pickerMode: DateTimePickerMode.date,
@@ -43,19 +42,19 @@ class DatePicker {
     String confirmText,
     String cancelText,
   }) {
-    DateTime _selectedDate = initialDateTime;
+    DateTime _selectedDate = initialDate;
 
     // handle the range of datetime
-    if (minDateTime == null) {
-      minDateTime = DateTime.parse(DATE_PICKER_MIN_DATETIME);
+    if (firstDate == null) {
+      firstDate = DateTime.parse(DATE_PICKER_MIN_DATETIME);
     }
-    if (maxDateTime == null) {
-      maxDateTime = DateTime.parse(DATE_PICKER_MAX_DATETIME);
+    if (lastDate == null) {
+      lastDate = DateTime.parse(DATE_PICKER_MAX_DATETIME);
     }
 
     // handle initial DateTime
-    if (initialDateTime == null) {
-      initialDateTime = DateTime.now();
+    if (initialDate == null) {
+      initialDate = DateTime.now();
     }
 
     if (backgroundColor == null)
@@ -70,10 +69,11 @@ class DatePicker {
       ),
       backgroundColor: backgroundColor,
       content: Container(
+        width: 300,
         child: DatePickerWidget(
-          minDateTime: minDateTime,
-          maxDateTime: maxDateTime,
-          initialDateTime: initialDateTime,
+          firstDate: firstDate,
+          lastDate: lastDate,
+          initialDate: initialDate,
           dateFormat: dateFormat,
           locale: locale,
           pickerTheme: DateTimePickerTheme(
@@ -190,9 +190,9 @@ class _DatePickerComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget pickerWidget = DatePickerWidget(
-      minDateTime: route.minDateTime,
-      maxDateTime: route.maxDateTime,
-      initialDateTime: route.initialDateTime,
+      firstDate: route.minDateTime,
+      lastDate: route.maxDateTime,
+      initialDate: route.initialDateTime,
       dateFormat: route.dateFormat,
       locale: route.locale,
       pickerTheme: route.pickerTheme,

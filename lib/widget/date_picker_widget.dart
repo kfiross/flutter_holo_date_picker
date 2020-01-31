@@ -15,9 +15,9 @@ const List<int> _solarMonthsOf31Days = const <int>[1, 3, 5, 7, 8, 10, 12];
 class DatePickerWidget extends StatefulWidget {
   DatePickerWidget({
     Key key,
-    this.minDateTime,
-    this.maxDateTime,
-    this.initialDateTime,
+    this.firstDate,
+    this.lastDate,
+    this.initialDate,
     this.dateFormat: DATETIME_PICKER_DATE_FORMAT,
     this.locale: DATETIME_PICKER_LOCALE_DEFAULT,
     this.pickerTheme: DateTimePickerTheme.Default,
@@ -25,12 +25,12 @@ class DatePickerWidget extends StatefulWidget {
     this.onChange,
     this.onConfirm,
   }) : super(key: key) {
-    DateTime minTime = minDateTime ?? DateTime.parse(DATE_PICKER_MIN_DATETIME);
-    DateTime maxTime = maxDateTime ?? DateTime.parse(DATE_PICKER_MAX_DATETIME);
+    DateTime minTime = firstDate ?? DateTime.parse(DATE_PICKER_MIN_DATETIME);
+    DateTime maxTime = lastDate ?? DateTime.parse(DATE_PICKER_MAX_DATETIME);
     assert(minTime.compareTo(maxTime) < 0);
   }
 
-  final DateTime minDateTime, maxDateTime, initialDateTime;
+  final DateTime firstDate, lastDate, initialDate;
   final String dateFormat;
   final DateTimePickerLocale locale;
   final DateTimePickerTheme pickerTheme;
@@ -40,7 +40,7 @@ class DatePickerWidget extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => _DatePickerWidgetState(
-      this.minDateTime, this.maxDateTime, this.initialDateTime);
+      this.firstDate, this.lastDate, this.initialDate);
 }
 
 class _DatePickerWidgetState extends State<DatePickerWidget> {
@@ -175,7 +175,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     @required ValueChanged<int> valueChanged,
   }) {
     return Expanded(
-      flex: 2,
+      flex: 1,
       child: Stack(
         fit: StackFit.loose,
         children: <Widget>[
