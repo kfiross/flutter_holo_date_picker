@@ -1,6 +1,6 @@
 # holo_date_picker_example
 
-flutter_holo_date_picker package exmaple project
+flutter_holo_date_picker package example project
 
 ## Getting Started
 
