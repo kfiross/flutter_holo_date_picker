@@ -1,3 +1,8 @@
+## [0.1.2]
+
+* added screenshots and changed font size to fit properly
+* made picker look more similar to the Holo-Theme style 
+
 ## [0.1.1]
 
 * added example and fixed ui bugs

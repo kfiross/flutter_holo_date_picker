@@ -37,7 +37,8 @@ class DatePicker {
     DateTimePickerLocale locale: DATETIME_PICKER_LOCALE_DEFAULT,
     DateTimePickerMode pickerMode: DateTimePickerMode.date,
     Color backgroundColor,
-    TextStyle itemTextStyle,
+    Color textColor,
+    //TextStyle itemTextStyle,
     String titleText,
     String confirmText,
     String cancelText,
@@ -59,13 +60,16 @@ class DatePicker {
 
     if (backgroundColor == null)
       backgroundColor = DateTimePickerTheme.Default.backgroundColor;
-    if (itemTextStyle == null)
-      itemTextStyle = DateTimePickerTheme.Default.itemTextStyle;
+//    if (itemTextStyle == null)
+//      itemTextStyle = DateTimePickerTheme.Default.itemTextStyle;
+
+    if(textColor == null)
+      textColor = DateTimePickerTheme.Default.itemTextStyle.color;
 
     var datePickerDialog = AlertDialog(
       title: Text(
         titleText ?? "Select Date",
-        style: TextStyle(color: itemTextStyle.color),
+        style: TextStyle(color: textColor),
       ),
       backgroundColor: backgroundColor,
       content: Container(
@@ -78,7 +82,7 @@ class DatePicker {
           locale: locale,
           pickerTheme: DateTimePickerTheme(
             backgroundColor: backgroundColor,
-            itemTextStyle: itemTextStyle,
+            itemTextStyle: TextStyle(color: textColor),
           ),
           onChange: ((DateTime date, list) {
             _selectedDate = date;
@@ -87,14 +91,14 @@ class DatePicker {
       ),
       actions: <Widget>[
         FlatButton(
-          textColor: itemTextStyle.color,
+          textColor: textColor,
           child: Text(confirmText ?? "OK"),
           onPressed: () {
             Navigator.pop(context, _selectedDate);
           },
         ),
         FlatButton(
-          textColor: itemTextStyle.color,
+          textColor: textColor,
           child: Text(cancelText ?? "Cancel"),
           onPressed: () {
             Navigator.pop(context);
