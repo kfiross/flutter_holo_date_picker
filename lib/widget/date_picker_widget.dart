@@ -188,7 +188,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       children: <Widget>[
         Positioned(
           child: Container(
-            padding: EdgeInsets.all(18.0),
+            padding: EdgeInsets.symmetric(horizontal: 7, vertical: 18),
             height: widget.pickerTheme.pickerHeight,
             decoration:
             BoxDecoration(color: widget.pickerTheme.backgroundColor),

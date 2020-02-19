@@ -1,3 +1,6 @@
+## [0.1.2+4]
+* fixed not showing 3 rows
+
 ## [0.1.2+3]
 * minimized size of dialog
 
