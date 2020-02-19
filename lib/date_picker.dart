@@ -71,6 +71,7 @@ class DatePicker {
         titleText ?? "Select Date",
         style: TextStyle(color: textColor),
       ),
+      contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 24),
       backgroundColor: backgroundColor,
       content: Container(
         width: 300,

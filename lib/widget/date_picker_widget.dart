@@ -166,7 +166,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               _changeDaySelection(value);
             }
           },
-          fontSize: sizeByFormat(widget.dateFormat)
+          fontSize: widget.pickerTheme.itemTextStyle.fontSize ?? sizeByFormat(widget.dateFormat)
       );
       pickers.add(pickerColumn);
     });
@@ -188,7 +188,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       children: <Widget>[
         Positioned(
           child: Container(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(18.0),
             height: widget.pickerTheme.pickerHeight,
             decoration:
             BoxDecoration(color: widget.pickerTheme.backgroundColor),
@@ -262,7 +262,6 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
   }
 
   double sizeByFormat(String format) {
-    print(format);
     if (format.contains("-MMMM") || format.contains("MMMM-"))
       return DATETIME_PICKER_ITEM_TEXT_SIZE_SMALL;
 
@@ -278,7 +277,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         DateTimeFormatter.formatDateTime(value, format, widget.locale),
         style: TextStyle(
             color: widget.pickerTheme.itemTextStyle.color,
-            fontSize: fontSize
+            fontSize: fontSize ?? widget.pickerTheme.itemTextStyle.fontSize
         ),
         //widget.pickerTheme.itemTextStyle ?? DATETIME_PICKER_ITEM_TEXT_STYLE,
       ),

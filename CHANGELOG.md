@@ -1,3 +1,6 @@
+## [0.1.2+3]
+* minimized size of dialog
+
 ## [0.1.2]
 
 * added screenshots and changed font size to fit properly
