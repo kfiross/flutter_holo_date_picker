@@ -40,8 +40,7 @@ class DatePickerWidget extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() =>
-      _DatePickerWidgetState(
-          this.firstDate, this.lastDate, this.initialDate);
+      _DatePickerWidgetState(this.firstDate, this.lastDate, this.initialDate);
 }
 
 class _DatePickerWidgetState extends State<DatePickerWidget> {
@@ -55,8 +54,8 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
   bool _isChangeDateRange = false;
 
-  _DatePickerWidgetState(DateTime minDateTime, DateTime maxDateTime,
-      DateTime initialDateTime) {
+  _DatePickerWidgetState(
+      DateTime minDateTime, DateTime maxDateTime, DateTime initialDateTime) {
     // handle current selected year、month、day
     DateTime initDateTime = initialDateTime ?? DateTime.now();
     this._currYear = initDateTime.year;
@@ -113,7 +112,6 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     return datePickerWidget;
   }
 
-
   /// notify selected date changed
   void _onSelectedChange() {
     if (widget.onChange != null) {
@@ -148,10 +146,9 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
   Widget _renderDatePickerWidget() {
     List<Widget> pickers = List<Widget>();
     List<String> formatArr =
-    DateTimeFormatter.splitDateFormat(widget.dateFormat);
+        DateTimeFormatter.splitDateFormat(widget.dateFormat);
     formatArr.forEach((format) {
       List<int> valueRange = _findPickerItemRange(format);
-
 
       Widget pickerColumn = _renderDatePickerColumnComponent(
           scrollCtrl: _findScrollCtrl(format),
@@ -166,98 +163,82 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               _changeDaySelection(value);
             }
           },
-          fontSize: widget.pickerTheme.itemTextStyle.fontSize ?? sizeByFormat(widget.dateFormat)
-      );
+          fontSize: widget.pickerTheme.itemTextStyle.fontSize ??
+              sizeByFormat(widget.dateFormat));
       pickers.add(pickerColumn);
     });
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: pickers);
   }
 
-  Widget _renderDatePickerColumnComponent({
-    @required FixedExtentScrollController scrollCtrl,
-    @required List<int> valueRange,
-    @required String format,
-    @required ValueChanged<int> valueChanged,
-    double fontSize
-  }) {
+  Widget _renderDatePickerColumnComponent(
+      {@required FixedExtentScrollController scrollCtrl,
+      @required List<int> valueRange,
+      @required String format,
+      @required ValueChanged<int> valueChanged,
+      double fontSize}) {
     return Expanded(
       flex: 1,
       child: Stack(
-      fit: StackFit.loose,
-      children: <Widget>[
-        Positioned(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 7, vertical: 18),
-            height: widget.pickerTheme.pickerHeight,
-            decoration:
-            BoxDecoration(color: widget.pickerTheme.backgroundColor),
-            child: CupertinoPicker.builder(
-              backgroundColor: widget.pickerTheme.backgroundColor,
-              scrollController: scrollCtrl,
-              squeeze: 0.95,
-              diameterRatio: 1.5,
-              itemExtent: widget.pickerTheme.itemHeight,
-              onSelectedItemChanged: valueChanged,
-              childCount: valueRange.last - valueRange.first + 1,
-              itemBuilder: (context, index) =>
-                  _renderDatePickerItemComponent(
-                      valueRange.first + index, format, fontSize),
+        fit: StackFit.loose,
+        children: <Widget>[
+          Positioned(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 7, vertical: 18),
+              height: widget.pickerTheme.pickerHeight,
+              decoration:
+                  BoxDecoration(color: widget.pickerTheme.backgroundColor),
+              child: CupertinoPicker.builder(
+                backgroundColor: widget.pickerTheme.backgroundColor,
+                scrollController: scrollCtrl,
+                squeeze: 0.95,
+                diameterRatio: 1.5,
+                itemExtent: widget.pickerTheme.itemHeight,
+                onSelectedItemChanged: valueChanged,
+                childCount: valueRange.last - valueRange.first + 1,
+                itemBuilder: (context, index) => _renderDatePickerItemComponent(
+                    valueRange.first + index, format, fontSize),
+              ),
             ),
           ),
-        ),
-        Positioned(
-          child: Container(
-              margin: const EdgeInsets.only(top: 63),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(width: MediaQuery
-                      .of(context)
-                      .size
-                      .width * 0.02),
-                  Expanded(
-                    child: Divider(
-                      color: widget.pickerTheme.itemTextStyle.color,
-                      height: 1,
-                      thickness: 2,
+          Positioned(
+            child: Container(
+                margin: const EdgeInsets.only(top: 63),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                    Expanded(
+                      child: Divider(
+                        color: widget.pickerTheme.itemTextStyle.color,
+                        height: 1,
+                        thickness: 2,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: MediaQuery
-                      .of(context)
-                      .size
-                      .width * 0.02)
-
-                ],
-              )),
-        ),
-        Positioned(
-          child: Container(
-              margin: const EdgeInsets.only(top: 99),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(width: MediaQuery
-                      .of(context)
-                      .size
-                      .width * 0.02),
-                  Expanded(
-                    child: Divider(
-                      color: widget.pickerTheme.itemTextStyle.color,
-                      height: 1,
-                      thickness: 2,
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.02)
+                  ],
+                )),
+          ),
+          Positioned(
+            child: Container(
+                margin: const EdgeInsets.only(top: 99),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                    Expanded(
+                      child: Divider(
+                        color: widget.pickerTheme.itemTextStyle.color,
+                        height: 1,
+                        thickness: 2,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: MediaQuery
-                      .of(context)
-                      .size
-                      .width * 0.02),
-
-                ],
-              )),
-        ),
-      ],
-    ),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                  ],
+                )),
+          ),
+        ],
+      ),
     );
   }
 
@@ -268,8 +249,8 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     return DATETIME_PICKER_ITEM_TEXT_SIZE_BIG;
   }
 
-  Widget _renderDatePickerItemComponent(int value, String format,
-      double fontSize) {
+  Widget _renderDatePickerItemComponent(
+      int value, String format, double fontSize) {
     return Container(
       height: widget.pickerTheme.itemHeight,
       alignment: Alignment.center,
@@ -277,8 +258,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         DateTimeFormatter.formatDateTime(value, format, widget.locale),
         style: TextStyle(
             color: widget.pickerTheme.itemTextStyle.color,
-            fontSize: fontSize ?? widget.pickerTheme.itemTextStyle.fontSize
-        ),
+            fontSize: fontSize ?? widget.pickerTheme.itemTextStyle.fontSize),
         //widget.pickerTheme.itemTextStyle ?? DATETIME_PICKER_ITEM_TEXT_STYLE,
       ),
     );
@@ -395,8 +375,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
   /// calculate the range of month
   List<int> _calcMonthRange() {
-    int minMonth = 1,
-        maxMonth = 12;
+    int minMonth = 1, maxMonth = 12;
     int minYear = _minDateTime.year;
     int maxYear = _maxDateTime.year;
     if (minYear == _currYear) {
@@ -412,8 +391,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
   /// calculate the range of day
   List<int> _calcDayRange({currMonth}) {
-    int minDay = 1,
-        maxDay = _calcDayCountOfMonth();
+    int minDay = 1, maxDay = _calcDayCountOfMonth();
     int minYear = _minDateTime.year;
     int maxYear = _maxDateTime.year;
     int minMonth = _minDateTime.month;
