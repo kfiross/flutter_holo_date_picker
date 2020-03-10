@@ -29,4 +29,5 @@ See the example for simple use
 - Italian (IT)
 - Hungarian (HU)
 - Hebrew (HE)
+- Indonesian (ID)
 

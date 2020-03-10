@@ -1,19 +1,22 @@
+## [0.1.2+5]
+* Added Indonesian Language support
+
 ## [0.1.2+4]
-* fixed not showing 3 rows
+* Fixed not showing 3 rows
 
 ## [0.1.2+3]
-* minimized size of dialog
+* Minimized size of dialog
 
 ## [0.1.2]
 
-* added screenshots and changed font size to fit properly
-* made picker look more similar to the Holo-Theme style 
+* Added screenshots and changed font size to fit properly
+* Made picker look more similar to the Holo-Theme style
 
 ## [0.1.1]
 
-* added example and fixed ui bugs
-* using properties like in default date picker
+* Added example and fixed UI bugs
+* Using properties like in default date picker
 
 ## [0.1.0]
 
-* initial release.
+* Initial release.
