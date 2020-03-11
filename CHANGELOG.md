@@ -1,3 +1,6 @@
+## [0.1.2+6]
+* Fixed an issue with month name in long format not showing in one line on small resolution
+
 ## [0.1.2+5]
 * Added Indonesian Language support
 

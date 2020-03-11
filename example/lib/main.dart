@@ -70,7 +70,7 @@ class _WidgetPageState extends State<WidgetPage> {
       child: Scaffold(
         body: Center(
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 28),
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: DatePickerWidget(
               firstDate: DateTime(1960),
               lastDate: DateTime(2002, 1, 1),
@@ -78,7 +78,7 @@ class _WidgetPageState extends State<WidgetPage> {
               dateFormat: "dd-MMMM-yyyy",
               onChange: (DateTime newDate, _) => _selectedDate = newDate,
               pickerTheme: DateTimePickerTheme(
-                  itemTextStyle: TextStyle(color: Colors.black, fontSize: 20)),
+                  itemTextStyle: TextStyle(color: Colors.black, fontSize: 19)),
             ),
           ),
         ),
