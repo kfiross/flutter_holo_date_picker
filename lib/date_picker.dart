@@ -42,6 +42,7 @@ class DatePicker {
     String titleText,
     String confirmText,
     String cancelText,
+    bool looping,
   }) {
     DateTime _selectedDate = initialDate;
 
@@ -88,6 +89,7 @@ class DatePicker {
           onChange: ((DateTime date, list) {
             _selectedDate = date;
           }),
+          looping: looping,
         ),
       ),
       actions: <Widget>[

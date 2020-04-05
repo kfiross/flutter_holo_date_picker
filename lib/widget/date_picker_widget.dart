@@ -24,6 +24,7 @@ class DatePickerWidget extends StatefulWidget {
     this.onCancel,
     this.onChange,
     this.onConfirm,
+    this.looping: false,
   }) : super(key: key) {
     DateTime minTime = firstDate ?? DateTime.parse(DATE_PICKER_MIN_DATETIME);
     DateTime maxTime = lastDate ?? DateTime.parse(DATE_PICKER_MAX_DATETIME);
@@ -37,6 +38,7 @@ class DatePickerWidget extends StatefulWidget {
 
   final DateVoidCallback onCancel;
   final DateValueCallback onChange, onConfirm;
+  final bool looping;
 
   @override
   State<StatefulWidget> createState() =>
@@ -188,16 +190,18 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               height: widget.pickerTheme.pickerHeight,
               decoration:
                   BoxDecoration(color: widget.pickerTheme.backgroundColor),
-              child: CupertinoPicker.builder(
+              child: CupertinoPicker(
                 backgroundColor: widget.pickerTheme.backgroundColor,
                 scrollController: scrollCtrl,
                 squeeze: 0.95,
                 diameterRatio: 1.5,
                 itemExtent: widget.pickerTheme.itemHeight,
                 onSelectedItemChanged: valueChanged,
-                childCount: valueRange.last - valueRange.first + 1,
-                itemBuilder: (context, index) => _renderDatePickerItemComponent(
-                    valueRange.first + index, format, fontSize),
+                looping: widget.looping,
+                children: List<Widget>.generate(
+                  valueRange.last - valueRange.first + 1, (index) =>
+                    _renderDatePickerItemComponent(
+                      valueRange.first + index, format, fontSize,),),
               ),
             ),
           ),
