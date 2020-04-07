@@ -42,7 +42,7 @@ class DatePicker {
     String titleText,
     String confirmText,
     String cancelText,
-    bool looping,
+    bool looping: false,
   }) {
     DateTime _selectedDate = initialDate;
 
