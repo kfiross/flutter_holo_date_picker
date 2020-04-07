@@ -15,6 +15,7 @@ part 'strings_it.dart';
 part 'strings_hu.dart';
 part 'strings_he.dart';
 part 'strings_id.dart';
+part 'strings_tr.dart';
 
 abstract class _StringsI18n {
   const _StringsI18n();
@@ -81,6 +82,9 @@ enum DateTimePickerLocale {
   /// Indonesian (ID)
   id,
 
+  /// Turkish (TR)
+  tr,
+
 }
 
 /// Default value of date locale
@@ -103,6 +107,7 @@ const Map<DateTimePickerLocale, _StringsI18n> datePickerI18n = {
   DateTimePickerLocale.hu: const _StringsHu(),
   DateTimePickerLocale.he: const _StringsHe(),
   DateTimePickerLocale.id: const _StringsId(),
+  DateTimePickerLocale.tr: const _StringsTr(),
 };
 
 class DatePickerI18n {
