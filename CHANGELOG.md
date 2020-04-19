@@ -1,3 +1,9 @@
+## [0.1.3+3]
+* Fixed an issue that beta 1.17.dev-3.0 introduced
+
+## [0.1.3+2]
+* Added Turkish Language support
+
 ## [0.1.3]
 * Added optional looping
 

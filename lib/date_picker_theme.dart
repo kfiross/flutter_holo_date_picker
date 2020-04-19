@@ -24,7 +24,9 @@ const Color DATETIME_PICKER_ITEM_TEXT_COLOR = Colors.black;
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_SMALL = 15;
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_BIG = 17;
 
-class DateTimePickerTheme extends Diagnosticable {
+/// To support both stable and beta channels until
+/// 'DiagnosticableMixin' is officially deprecated.
+class DateTimePickerTheme with DiagnosticableMixin {
   final cancelDefault = const Text('OK');
 
   /// DateTimePicker theme.

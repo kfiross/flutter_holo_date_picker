@@ -30,4 +30,5 @@ See the example for simple use
 - Hungarian (HU)
 - Hebrew (HE)
 - Indonesian (ID)
+- Turkish (TR)
 
