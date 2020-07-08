@@ -1,21 +1,23 @@
 import 'dart:math';
 
-part 'strings_en_us.dart';
-part 'strings_zh_cn.dart';
-part 'strings_pt_br.dart';
-part 'strings_es.dart';
-part 'strings_ro.dart';
-part 'strings_bn.dart';
 part 'strings_ar.dart';
-part 'strings_jp.dart';
-part 'strings_ru.dart';
+part 'strings_bn.dart';
 part 'strings_de.dart';
-part 'strings_ko.dart';
-part 'strings_it.dart';
-part 'strings_hu.dart';
+part 'strings_en_us.dart';
+part 'strings_es.dart';
 part 'strings_he.dart';
+part 'strings_hu.dart';
 part 'strings_id.dart';
+part 'strings_it.dart';
+part 'strings_jp.dart';
+part 'strings_ko.dart';
+part 'strings_no_nb.dart';
+part 'strings_no_nn.dart';
+part 'strings_pt_br.dart';
+part 'strings_ro.dart';
+part 'strings_ru.dart';
 part 'strings_tr.dart';
+part 'strings_zh_cn.dart';
 
 abstract class _StringsI18n {
   const _StringsI18n();
@@ -85,6 +87,11 @@ enum DateTimePickerLocale {
   /// Turkish (TR)
   tr,
 
+  /// Norwegian Bokmål (NO)
+  no_nb,
+
+  /// Norwegian Nynorsk (NO)
+  no_nn
 }
 
 /// Default value of date locale
@@ -108,6 +115,8 @@ const Map<DateTimePickerLocale, _StringsI18n> datePickerI18n = {
   DateTimePickerLocale.he: const _StringsHe(),
   DateTimePickerLocale.id: const _StringsId(),
   DateTimePickerLocale.tr: const _StringsTr(),
+  DateTimePickerLocale.no_nb: const _StringsNoNb(),
+  DateTimePickerLocale.no_nn: const _StringsNoNn(),
 };
 
 class DatePickerI18n {

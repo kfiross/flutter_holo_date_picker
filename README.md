@@ -31,4 +31,5 @@ See the example for simple use
 - Hebrew (HE)
 - Indonesian (ID)
 - Turkish (TR)
+- Norwegian (NO)
 
