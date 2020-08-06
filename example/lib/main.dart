@@ -47,8 +47,9 @@ class MyHomePage extends StatelessWidget {
           ),
           RaisedButton(
             child: Text("Show picker widget"),
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (_) => WidgetPage()));
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => WidgetPage()));
             },
           )
         ],
@@ -73,7 +74,7 @@ class _WidgetPageState extends State<WidgetPage> {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: DatePickerWidget(
-              looping: false,   // default is not looping
+              looping: false, // default is not looping
               firstDate: DateTime(1960),
               lastDate: DateTime(2002, 1, 1),
               initialDate: DateTime(1994),
