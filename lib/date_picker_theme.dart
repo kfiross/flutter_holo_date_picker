@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
 
 /// Default value of DatePicker's background color.
 const DATETIME_PICKER_BACKGROUND_COLOR = Colors.white;
@@ -26,7 +25,7 @@ const double DATETIME_PICKER_ITEM_TEXT_SIZE_BIG = 17;
 
 /// To support both stable and beta channels until
 /// 'DiagnosticableMixin' is officially deprecated.
-class DateTimePickerTheme with DiagnosticableMixin {
+class DateTimePickerTheme {
   final cancelDefault = const Text('OK');
 
   /// DateTimePicker theme.
