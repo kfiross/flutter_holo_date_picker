@@ -1,3 +1,9 @@
+## [0.1.5]
+* Replaced deprecated `DiagnosticableMixin`
+
+## [0.1.4]
+* Added Norwegian language support
+
 ## [0.1.3+3]
 * Fixed an issue that beta 1.17.dev-3.0 introduced
 
