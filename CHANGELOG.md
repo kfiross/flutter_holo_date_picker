@@ -1,5 +1,6 @@
 ## [0.2.0]
-* Added divider color option.
+* Added option for changing divider color.
+* Add option to use locale for selecting language.
 
 ## [0.1.5]
 * Replaced deprecated `DiagnosticableMixin`
