@@ -81,7 +81,9 @@ class _WidgetPageState extends State<WidgetPage> {
               dateFormat: "dd-MMMM-yyyy",
               onChange: (DateTime newDate, _) => _selectedDate = newDate,
               pickerTheme: DateTimePickerTheme(
-                  itemTextStyle: TextStyle(color: Colors.black, fontSize: 19)),
+                itemTextStyle: TextStyle(color: Colors.black, fontSize: 19),
+                dividerColor: Colors.blue,
+              ),
             ),
           ),
         ),
