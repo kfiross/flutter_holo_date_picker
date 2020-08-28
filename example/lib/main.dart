@@ -79,6 +79,7 @@ class _WidgetPageState extends State<WidgetPage> {
               lastDate: DateTime(2002, 1, 1),
               initialDate: DateTime(1994),
               dateFormat: "dd-MMMM-yyyy",
+              locale: DatePicker.localeFromString('he'),
               onChange: (DateTime newDate, _) => _selectedDate = newDate,
               pickerTheme: DateTimePickerTheme(
                 itemTextStyle: TextStyle(color: Colors.black, fontSize: 19),

@@ -14,7 +14,69 @@ enum DateTimePickerMode {
   datetime,
 }
 
+
 class DatePicker {
+  /// Gets the right [DateTimePickerLocale] by a language string
+  ///
+  /// languageCode: [languageCode] Locale's String language code
+  static DateTimePickerLocale localeFromString(String languageCode) {
+    switch (languageCode) {
+      case 'zh':
+        return DateTimePickerLocale.zh_cn;
+
+      case 'pt':
+        return DateTimePickerLocale.pt_br;
+
+      case 'es':
+        return DateTimePickerLocale.es;
+
+      case 'ro':
+        return DateTimePickerLocale.ro;
+
+      case 'bn':
+        return DateTimePickerLocale.bn;
+
+      case 'ar':
+        return DateTimePickerLocale.ar;
+
+      case 'jp':
+        return DateTimePickerLocale.jp;
+
+      case 'ru':
+        return DateTimePickerLocale.ru;
+
+      case 'de':
+        return DateTimePickerLocale.de;
+
+      case 'ko':
+        return DateTimePickerLocale.ko;
+
+      case 'it':
+        return DateTimePickerLocale.it;
+
+      case 'hu':
+        return DateTimePickerLocale.hu;
+
+      case 'he':
+        return DateTimePickerLocale.he;
+
+      case 'id':
+        return DateTimePickerLocale.id;
+
+      case 'tr':
+        return DateTimePickerLocale.tr;
+
+      case 'nb':
+        return DateTimePickerLocale.no_nb;
+
+      case 'nn':
+        return DateTimePickerLocale.no_nn;
+
+      default:
+        return DateTimePickerLocale.en_us;
+    }
+  }
+
   /// Display date picker in bottom sheet.
   ///
   /// context: [BuildContext]
