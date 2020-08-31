@@ -47,14 +47,6 @@ class _StringsFr extends _StringsI18n {
 
   @override
   List<String> getWeeksShort() {
-    return [
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thur",
-      "Fri",
-      "Sat",
-      "Sun",
-    ];
+    return null;
   }
 }
