@@ -32,4 +32,5 @@ See the example for simple use
 - Indonesian (ID)
 - Turkish (TR)
 - Norwegian (NO)
+- French (FR)
 
