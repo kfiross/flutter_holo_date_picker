@@ -1,3 +1,6 @@
+## [0.2.1]
+* Added French language support.
+
 ## [0.2.0]
 * Added option for changing divider color.
 * Add option to use locale for selecting language.
