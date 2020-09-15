@@ -199,9 +199,13 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 onSelectedItemChanged: valueChanged,
                 looping: widget.looping,
                 children: List<Widget>.generate(
-                  valueRange.last - valueRange.first + 1, (index) =>
-                    _renderDatePickerItemComponent(
-                      valueRange.first + index, format, fontSize,),),
+                  valueRange.last - valueRange.first + 1,
+                  (index) => _renderDatePickerItemComponent(
+                    valueRange.first + index,
+                    format,
+                    fontSize,
+                  ),
+                ),
               ),
             ),
           ),
@@ -262,9 +266,9 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       alignment: Alignment.center,
       child: Text(
         DateTimeFormatter.formatDateTime(value, format, widget.locale),
-        style: TextStyle(
-            color: widget.pickerTheme.itemTextStyle.color,
-            fontSize: fontSize ?? widget.pickerTheme.itemTextStyle.fontSize),
+        style: widget.pickerTheme.itemTextStyle.copyWith(
+          fontSize: fontSize ?? widget.pickerTheme.itemTextStyle.fontSize,
+        ),
         //widget.pickerTheme.itemTextStyle ?? DATETIME_PICKER_ITEM_TEXT_STYLE,
       ),
     );
