@@ -152,6 +152,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     formatArr.forEach((format) {
       List<int> valueRange = _findPickerItemRange(format);
 
+
       Widget pickerColumn = _renderDatePickerColumnComponent(
           scrollCtrl: _findScrollCtrl(format),
           valueRange: valueRange,
@@ -179,6 +180,8 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       @required String format,
       @required ValueChanged<int> valueChanged,
       double fontSize}) {
+
+
     return Expanded(
       flex: 1,
       child: Stack(
@@ -199,9 +202,11 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 onSelectedItemChanged: valueChanged,
                 looping: widget.looping,
                 children: List<Widget>.generate(
-                  valueRange.last - valueRange.first + 1, (index) =>
-                    _renderDatePickerItemComponent(
-                      valueRange.first + index, format, fontSize,),),
+                  valueRange.last - valueRange.first + 1, (index) {
+                    return _renderDatePickerItemComponent(
+                      valueRange.first + index, format, fontSize,);
+                  },
+                ),
               ),
             ),
           ),
@@ -257,11 +262,13 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
   Widget _renderDatePickerItemComponent(
       int value, String format, double fontSize) {
+    var weekday = DateTime(_currYear, _currMonth, value).weekday;
+
     return Container(
       height: widget.pickerTheme.itemHeight,
       alignment: Alignment.center,
       child: Text(
-        DateTimeFormatter.formatDateTime(value, format, widget.locale),
+        DateTimeFormatter.formatDateTime(value, format, widget.locale, weekday),
         style: TextStyle(
             color: widget.pickerTheme.itemTextStyle.color,
             fontSize: fontSize ?? widget.pickerTheme.itemTextStyle.fontSize),

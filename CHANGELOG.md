@@ -1,3 +1,6 @@
+## [0.2.2]
+* Added Weekday support.
+
 ## [0.2.1]
 * Added French language support.
 

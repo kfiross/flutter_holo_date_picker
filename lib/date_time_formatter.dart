@@ -73,7 +73,7 @@ class DateTimeFormatter {
 
   /// Format datetime string
   static String formatDateTime(
-      int value, String format, DateTimePickerLocale locale) {
+      int value, String format, DateTimePickerLocale locale, weekday) {
     if (format == null || format.length == 0) {
       return value.toString();
     }
@@ -92,7 +92,7 @@ class DateTimeFormatter {
       result = _formatDay(value, result, locale);
     }
     if (format.contains('E')) {
-      result = _formatWeek(value, result, locale);
+      result = _formatWeek(weekday, result, locale);
     }
     // format hour text
     if (format.contains('H')) {
@@ -112,34 +112,34 @@ class DateTimeFormatter {
     return result;
   }
 
-  /// Format day display
-  static String formatDate(
-      DateTime dateTime, String format, DateTimePickerLocale locale) {
-    if (format == null || format.length == 0) {
-      return dateTime.toString();
-    }
-
-    String result = format;
-    // format year text
-    if (format.contains('y')) {
-      result = _formatYear(dateTime.year, result, locale);
-    }
-    // format month text
-    if (format.contains('M')) {
-      result = _formatMonth(dateTime.month, result, locale);
-    }
-    // format day text
-    if (format.contains('d')) {
-      result = _formatDay(dateTime.day, result, locale);
-    }
-    if (format.contains('E')) {
-      result = _formatWeek(dateTime.weekday, result, locale);
-    }
-    if (result == format) {
-      return dateTime.toString();
-    }
-    return result;
-  }
+//  /// Format day display
+//  static String formatDate(
+//      DateTime dateTime, String format, DateTimePickerLocale locale) {
+//    if (format == null || format.length == 0) {
+//      return dateTime.toString();
+//    }
+//
+//    String result = format;
+//    // format year text
+//    if (format.contains('y')) {
+//      result = _formatYear(dateTime.year, result, locale);
+//    }
+//    // format month text
+//    if (format.contains('M')) {
+//      result = _formatMonth(dateTime.month, result, locale);
+//    }
+//    // format day text
+//    if (format.contains('d')) {
+//      result = _formatDay(dateTime.day, result, locale);
+//    }
+//    if (format.contains('E')) {
+//      result = _formatWeek(dateTime.weekday, result, locale);
+//    }
+//    if (result == format) {
+//      return dateTime.toString();
+//    }
+//    return result;
+//  }
 
   /// format year text
   static String _formatYear(

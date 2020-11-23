@@ -75,16 +75,22 @@ class _WidgetPageState extends State<WidgetPage> {
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: DatePickerWidget(
               looping: false, // default is not looping
-              firstDate: DateTime(1960),
-              lastDate: DateTime(2002, 1, 1),
-              initialDate: DateTime(1994),
-              dateFormat: "dd-MMMM-yyyy",
-              locale: DatePicker.localeFromString('he'),
-              onChange: (DateTime newDate, _) => _selectedDate = newDate,
+              firstDate: DateTime.now(), //DateTime(1960),
+            //  lastDate: DateTime(2002, 1, 1),
+//              initialDate: DateTime.now(),// DateTime(1994),
+              dateFormat:
+              "MM-dd(E)",
+           //   "dd-MMMM-yyyy",
+         //     locale: DatePicker.localeFromString('he'),
+              onChange: (DateTime newDate, _) {
+                print(newDate);
+            //    _selectedDate = newDate;
+              },
               pickerTheme: DateTimePickerTheme(
                 itemTextStyle: TextStyle(color: Colors.black, fontSize: 19),
                 dividerColor: Colors.blue,
               ),
+
             ),
           ),
         ),
