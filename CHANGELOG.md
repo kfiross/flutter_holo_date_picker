@@ -1,3 +1,6 @@
+## [0.2.3]
+* Option to reverse action buttons.
+
 ## [0.2.2]
 * Added Weekday support.
 
