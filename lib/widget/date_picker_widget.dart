@@ -299,6 +299,12 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
   /// change the selection of day picker
   void _changeDaySelection(int index) {
+    if (_isChangeDateRange) {
+      return;
+    }
+
+    if(index == 0)
+      return;
     int dayOfMonth = _dayRange.first + index;
     if (_currDay != dayOfMonth) {
       _currDay = dayOfMonth;
@@ -349,9 +355,12 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     if (dayRangeChanged) {
       // CupertinoPicker refresh data not working (https://github.com/flutter/flutter/issues/22999)
       int currDay = _currDay;
-      _dayScrollCtrl.jumpToItem(dayRange.last - dayRange.first);
+
       if (currDay < dayRange.last) {
         _dayScrollCtrl.jumpToItem(currDay - dayRange.first);
+      }
+      else{
+        _dayScrollCtrl.jumpToItem(dayRange.last - dayRange.first);
       }
     }
 

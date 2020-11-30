@@ -249,7 +249,7 @@ class _DatePickerComponent extends StatelessWidget {
   final _DatePickerRoute route;
   final double _pickerHeight;
 
-  _DatePickerComponent({Key key, @required this.route, @required pickerHeight})
+  _DatePickerComponent({@required this.route, @required pickerHeight})
       : this._pickerHeight = pickerHeight;
 
   @override

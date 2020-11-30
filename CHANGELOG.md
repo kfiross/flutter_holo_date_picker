@@ -1,3 +1,9 @@
+## [0.3.0]
+* stable version of `0.3.0-dev.1` 
+
+## [0.3.0-dev.1]
+* test for bug with date changes unintended.
+
 ## [0.2.3]
 * Option to reverse action buttons.
 

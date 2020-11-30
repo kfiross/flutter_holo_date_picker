@@ -27,6 +27,8 @@ dependencies:
   flutter_holo_date_picker:
     path: ../
 
+  intl: ^0.16.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
