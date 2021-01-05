@@ -1,3 +1,6 @@
+## [0.3.1]
+* fixed bug with 'month' text losing form on smaller screens (#19) 
+
 ## [0.3.0]
 * stable version of `0.3.0-dev.1` 
 

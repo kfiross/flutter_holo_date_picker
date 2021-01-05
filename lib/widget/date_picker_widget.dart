@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -267,8 +268,9 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     return Container(
       height: widget.pickerTheme.itemHeight,
       alignment: Alignment.center,
-      child: Text(
+      child: AutoSizeText(
         DateTimeFormatter.formatDateTime(value, format, widget.locale, weekday),
+        maxLines: 1,
         style: TextStyle(
             color: widget.pickerTheme.itemTextStyle.color,
             fontSize: fontSize ?? widget.pickerTheme.itemTextStyle.fontSize),
