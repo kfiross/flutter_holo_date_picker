@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -267,8 +268,9 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     return Container(
       height: widget.pickerTheme.itemHeight,
       alignment: Alignment.center,
-      child: Text(
+      child: AutoSizeText(
         DateTimeFormatter.formatDateTime(value, format, widget.locale, weekday),
+        maxLines: 1,
         style: TextStyle(
             color: widget.pickerTheme.itemTextStyle.color,
             fontSize: fontSize ?? widget.pickerTheme.itemTextStyle.fontSize),
@@ -299,6 +301,12 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
   /// change the selection of day picker
   void _changeDaySelection(int index) {
+    if (_isChangeDateRange) {
+      return;
+    }
+
+    if(index == 0)
+      return;
     int dayOfMonth = _dayRange.first + index;
     if (_currDay != dayOfMonth) {
       _currDay = dayOfMonth;
@@ -349,9 +357,12 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     if (dayRangeChanged) {
       // CupertinoPicker refresh data not working (https://github.com/flutter/flutter/issues/22999)
       int currDay = _currDay;
-      _dayScrollCtrl.jumpToItem(dayRange.last - dayRange.first);
+
       if (currDay < dayRange.last) {
         _dayScrollCtrl.jumpToItem(currDay - dayRange.first);
+      }
+      else{
+        _dayScrollCtrl.jumpToItem(dayRange.last - dayRange.first);
       }
     }
 

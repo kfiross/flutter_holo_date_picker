@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 
+import 'date_testing.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -10,11 +12,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'example',
       theme: ThemeData(primarySwatch: Colors.blue),
+//      home: DateTesting(),
       home: Scaffold(
           appBar: AppBar(
             title: Text('Holo Datepicker Example'),
           ),
-          body: MyHomePage()),
+          body: MyHomePage(),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -83,8 +87,8 @@ class _WidgetPageState extends State<WidgetPage> {
            //   "dd-MMMM-yyyy",
          //     locale: DatePicker.localeFromString('he'),
               onChange: (DateTime newDate, _) {
-                print(newDate);
-            //    _selectedDate = newDate;
+                _selectedDate = newDate;
+                print(_selectedDate);
               },
               pickerTheme: DateTimePickerTheme(
                 itemTextStyle: TextStyle(color: Colors.black, fontSize: 19),
@@ -98,3 +102,5 @@ class _WidgetPageState extends State<WidgetPage> {
     );
   }
 }
+
+
