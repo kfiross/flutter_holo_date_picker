@@ -16,6 +16,7 @@ part 'strings_no_nn.dart';
 part 'strings_pt_br.dart';
 part 'strings_ro.dart';
 part 'strings_ru.dart';
+part 'strings_th.dart';
 part 'strings_tr.dart';
 part 'strings_zh_cn.dart';
 part 'strings_fr.dart';
@@ -84,6 +85,9 @@ enum DateTimePickerLocale {
 
   /// Indonesian (ID)
   id,
+  
+ /// Thailand (TH)
+  th,
 
   /// Turkish (TR)
   tr,
@@ -118,6 +122,7 @@ const Map<DateTimePickerLocale, _StringsI18n> datePickerI18n = {
   DateTimePickerLocale.hu: const _StringsHu(),
   DateTimePickerLocale.he: const _StringsHe(),
   DateTimePickerLocale.id: const _StringsId(),
+  DateTimePickerLocale.th: const _StringsTh(),
   DateTimePickerLocale.tr: const _StringsTr(),
   DateTimePickerLocale.no_nb: const _StringsNoNb(),
   DateTimePickerLocale.no_nn: const _StringsNoNn(),
