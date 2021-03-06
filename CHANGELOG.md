@@ -1,11 +1,14 @@
+## [0.3.1+1]
+* Fixed score. 
+
 ## [0.3.1]
-* fixed bug with 'month' text losing form on smaller screens (#19) 
+* Fixed bug with 'month' text losing form on smaller screens (#19) 
 
 ## [0.3.0]
-* stable version of `0.3.0-dev.1` 
+* Stable version of `0.3.0-dev.1` 
 
 ## [0.3.0-dev.1]
-* test for bug with date changes unintended.
+* Test for bug with date changes unintended.
 
 ## [0.2.3]
 * Option to reverse action buttons.

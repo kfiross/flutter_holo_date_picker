@@ -147,12 +147,11 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
   /// render the picker widget of year、month and day
   Widget _renderDatePickerWidget() {
-    List<Widget> pickers = List<Widget>();
+    List<Widget> pickers = [];
     List<String> formatArr =
         DateTimeFormatter.splitDateFormat(widget.dateFormat);
     formatArr.forEach((format) {
       List<int> valueRange = _findPickerItemRange(format);
-
 
       Widget pickerColumn = _renderDatePickerColumnComponent(
           scrollCtrl: _findScrollCtrl(format),
@@ -181,8 +180,6 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       @required String format,
       @required ValueChanged<int> valueChanged,
       double fontSize}) {
-
-
     return Expanded(
       flex: 1,
       child: Stack(
@@ -203,9 +200,13 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 onSelectedItemChanged: valueChanged,
                 looping: widget.looping,
                 children: List<Widget>.generate(
-                  valueRange.last - valueRange.first + 1, (index) {
+                  valueRange.last - valueRange.first + 1,
+                  (index) {
                     return _renderDatePickerItemComponent(
-                      valueRange.first + index, format, fontSize,);
+                      valueRange.first + index,
+                      format,
+                      fontSize,
+                    );
                   },
                 ),
               ),
@@ -305,8 +306,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       return;
     }
 
-    if(index == 0)
-      return;
+    if (index == 0) return;
     int dayOfMonth = _dayRange.first + index;
     if (_currDay != dayOfMonth) {
       _currDay = dayOfMonth;
@@ -360,8 +360,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
       if (currDay < dayRange.last) {
         _dayScrollCtrl.jumpToItem(currDay - dayRange.first);
-      }
-      else{
+      } else {
         _dayScrollCtrl.jumpToItem(dayRange.last - dayRange.first);
       }
     }
