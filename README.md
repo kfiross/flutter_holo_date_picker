@@ -7,7 +7,7 @@
 This plugins displays a Datepicker inspired by the Holo Theme in Android.
 based on the [flutter_cupertino_date_picker package](https://pub.dev/packages/flutter_cupertino_date_picker)
 
-See the example for simple use
+See the example for simple use :)
 
 ## Screenshots
 ![](images/dialog_example.jpeg)
@@ -33,4 +33,5 @@ See the example for simple use
 - Turkish (TR)
 - Norwegian (NO)
 - French (FR)
+- Thai (TH)
 

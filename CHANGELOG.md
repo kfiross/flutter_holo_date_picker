@@ -1,3 +1,6 @@
+## [0.3.2]
+* Added Thai language support.
+
 ## [0.3.1+1]
 * Fixed score. 
 
