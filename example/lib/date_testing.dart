@@ -3,7 +3,7 @@ import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 import 'package:intl/intl.dart';
 
 class DateTesting extends StatefulWidget {
-  DateTesting({Key key}) : super(key: key);
+  DateTesting({Key? key}) : super(key: key);
 
   @override
   _DateTestingState createState() => _DateTestingState();
@@ -27,7 +27,7 @@ class _DateTestingState extends State {
         ),
         body: ListView(
           children: [
-            RaisedButton(
+            ElevatedButton(
               child: Text("$quoteStartDate"),
               onPressed: () async {
                 var selectedFirstDate = await DatePicker.showSimpleDatePicker(
@@ -49,7 +49,7 @@ class _DateTestingState extends State {
                 setState(() {
                   setState(() {
                     quoteStartDate =
-                        DateFormat.yMMMd().format(selectedFirstDate);
+                        DateFormat.yMMMd().format(selectedFirstDate!);
 
                     print("My quoteStartDate is picked $quoteStartDate");
 
@@ -61,7 +61,7 @@ class _DateTestingState extends State {
                 });
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text("$endPeriod"),
               onPressed: () async {
                 var selectedEndDate = await DatePicker.showSimpleDatePicker(
@@ -80,7 +80,7 @@ class _DateTestingState extends State {
 
                 setState(() {
                   endPeriod =
-                      DateFormat.yMMMd().format(selectedEndDate).toString();
+                      DateFormat.yMMMd().format(selectedEndDate!).toString();
 
                 });
 
