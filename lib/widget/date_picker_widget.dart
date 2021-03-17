@@ -26,6 +26,8 @@ class DatePickerWidget extends StatefulWidget {
     this.onChange,
     this.onConfirm,
     this.looping: false,
+    this.squeeze: 0.95,
+    this.diameterRatio: 1.5,
   }) : super(key: key) {
     DateTime minTime = firstDate ?? DateTime.parse(DATE_PICKER_MIN_DATETIME);
     DateTime maxTime = lastDate ?? DateTime.parse(DATE_PICKER_MAX_DATETIME);
@@ -40,6 +42,8 @@ class DatePickerWidget extends StatefulWidget {
   final DateVoidCallback? onCancel;
   final DateValueCallback? onChange, onConfirm;
   final bool looping;
+  final double squeeze;
+  final double diameterRatio;
 
   @override
   State<StatefulWidget> createState() =>
@@ -47,10 +51,12 @@ class DatePickerWidget extends StatefulWidget {
 }
 
 class _DatePickerWidgetState extends State<DatePickerWidget> {
- late DateTime _minDateTime, _maxDateTime;
+  late DateTime _minDateTime, _maxDateTime;
   int? _currYear, _currMonth, _currDay;
   List<int>? _yearRange, _monthRange, _dayRange;
-  FixedExtentScrollController? _yearScrollCtrl, _monthScrollCtrl, _dayScrollCtrl;
+  FixedExtentScrollController? _yearScrollCtrl,
+      _monthScrollCtrl,
+      _dayScrollCtrl;
 
   late Map<String, FixedExtentScrollController?> _scrollCtrlMap;
   late Map<String, List<int>?> _valueRangeMap;
@@ -75,15 +81,16 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
     // limit the range of month
     this._monthRange = _calcMonthRange();
-    this._currMonth = min(max(_monthRange!.first, _currMonth!), _monthRange!.last);
+    this._currMonth =
+        min(max(_monthRange!.first, _currMonth!), _monthRange!.last);
 
     // limit the range of day
     this._dayRange = _calcDayRange();
     this._currDay = min(max(_dayRange!.first, _currDay!), _dayRange!.last);
 
     // create scroll controller
-    _yearScrollCtrl =
-        FixedExtentScrollController(initialItem: _currYear! - _yearRange!.first);
+    _yearScrollCtrl = FixedExtentScrollController(
+        initialItem: _currYear! - _yearRange!.first);
     _monthScrollCtrl = FixedExtentScrollController(
         initialItem: _currMonth! - _monthRange!.first);
     _dayScrollCtrl =
@@ -194,8 +201,8 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               child: CupertinoPicker(
                 backgroundColor: widget.pickerTheme!.backgroundColor,
                 scrollController: scrollCtrl,
-                squeeze: 0.95,
-                diameterRatio: 1.5,
+                squeeze: widget.squeeze,
+                diameterRatio: widget.diameterRatio,
                 itemExtent: widget.pickerTheme!.itemHeight,
                 onSelectedItemChanged: valueChanged,
                 looping: widget.looping,

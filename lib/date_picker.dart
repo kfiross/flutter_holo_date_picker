@@ -105,16 +105,20 @@ class DatePicker {
     String? cancelText,
     bool looping: false,
     bool reverse: false,
+    double squeeze = 0.95,
+    double diameterRatio = 1.5,
   }) {
     DateTime? _selectedDate = initialDate;
     final List<Widget> listButtonActions = [
-      TextButton(style: TextButton.styleFrom(primary:textColor),
+      TextButton(
+        style: TextButton.styleFrom(primary: textColor),
         child: Text(confirmText ?? "OK"),
         onPressed: () {
           Navigator.pop(context, _selectedDate);
         },
       ),
-      TextButton(style: TextButton.styleFrom(primary:textColor),
+      TextButton(
+        style: TextButton.styleFrom(primary: textColor),
         child: Text(cancelText ?? "Cancel"),
         onPressed: () {
           Navigator.pop(context);
@@ -153,6 +157,8 @@ class DatePicker {
       content: Container(
         width: 300,
         child: DatePickerWidget(
+          squeeze: squeeze,
+          diameterRatio: diameterRatio,
           firstDate: firstDate,
           lastDate: lastDate,
           initialDate: initialDate,
