@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 
+import 'date_testing.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -29,14 +31,14 @@ class MyHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          ElevatedButton(
+          RaisedButton(
             child: Text("open picker dialog"),
             onPressed: () async {
               var datePicked = await DatePicker.showSimpleDatePicker(
                 context,
-                initialDate: DateTime(1994),
+               // initialDate: DateTime(1994),
                 firstDate: DateTime(1960),
-                lastDate: DateTime(2012),
+                // lastDate: DateTime(2012),
                 dateFormat: "dd-MMMM-yyyy",
                 locale: DateTimePickerLocale.en_us,
                 looping: true,
@@ -44,10 +46,10 @@ class MyHomePage extends StatelessWidget {
 
               final snackBar =
                   SnackBar(content: Text("Date Picked $datePicked"));
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              Scaffold.of(context).showSnackBar(snackBar);
             },
           ),
-          ElevatedButton(
+          RaisedButton(
             child: Text("Show picker widget"),
             onPressed: () {
               Navigator.push(
@@ -66,7 +68,7 @@ class WidgetPage extends StatefulWidget {
 }
 
 class _WidgetPageState extends State<WidgetPage> {
-  DateTime? _selectedDate;
+  DateTime _selectedDate;
 
   @override
   Widget build(BuildContext context) {

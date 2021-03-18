@@ -1,3 +1,9 @@
+## [0.3.4]
+* Fixed that the 1st day of the month wasn't selected (#22)
+
+## [0.3.3]
+* Fixed when selecting the current day, picker returns null (#26) 
+
 ## [0.3.2]
 * Added Thai language support.
 
