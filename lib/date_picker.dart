@@ -163,6 +163,7 @@ class DatePicker {
             itemTextStyle: TextStyle(color: textColor),
           ),
           onChange: ((DateTime date, list) {
+            print(date);
             _selectedDate = date;
           }),
           looping: looping,

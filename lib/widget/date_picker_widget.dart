@@ -47,10 +47,12 @@ class DatePickerWidget extends StatefulWidget {
 }
 
 class _DatePickerWidgetState extends State<DatePickerWidget> {
- late DateTime _minDateTime, _maxDateTime;
+  late DateTime _minDateTime, _maxDateTime;
   int? _currYear, _currMonth, _currDay;
   List<int>? _yearRange, _monthRange, _dayRange;
-  FixedExtentScrollController? _yearScrollCtrl, _monthScrollCtrl, _dayScrollCtrl;
+  FixedExtentScrollController? _yearScrollCtrl,
+      _monthScrollCtrl,
+      _dayScrollCtrl;
 
   late Map<String, FixedExtentScrollController?> _scrollCtrlMap;
   late Map<String, List<int>?> _valueRangeMap;
@@ -75,15 +77,16 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
     // limit the range of month
     this._monthRange = _calcMonthRange();
-    this._currMonth = min(max(_monthRange!.first, _currMonth!), _monthRange!.last);
+    this._currMonth =
+        min(max(_monthRange!.first, _currMonth!), _monthRange!.last);
 
     // limit the range of day
     this._dayRange = _calcDayRange();
     this._currDay = min(max(_dayRange!.first, _currDay!), _dayRange!.last);
 
     // create scroll controller
-    _yearScrollCtrl =
-        FixedExtentScrollController(initialItem: _currYear! - _yearRange!.first);
+    _yearScrollCtrl = FixedExtentScrollController(
+        initialItem: _currYear! - _yearRange!.first);
     _monthScrollCtrl = FixedExtentScrollController(
         initialItem: _currMonth! - _monthRange!.first);
     _dayScrollCtrl =
@@ -307,7 +310,6 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       return;
     }
 
-    if (index == 0) return;
     int dayOfMonth = _dayRange!.first + index;
     if (_currDay != dayOfMonth) {
       _currDay = dayOfMonth;
