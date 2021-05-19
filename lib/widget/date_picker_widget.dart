@@ -26,6 +26,8 @@ class DatePickerWidget extends StatefulWidget {
     this.onChange,
     this.onConfirm,
     this.looping: false,
+    this.squeeze: 0.95,
+    this.diameterRatio: 1.5,
   }) : super(key: key) {
     DateTime minTime = firstDate ?? DateTime.parse(DATE_PICKER_MIN_DATETIME);
     DateTime maxTime = lastDate ?? DateTime.parse(DATE_PICKER_MAX_DATETIME);
@@ -40,6 +42,8 @@ class DatePickerWidget extends StatefulWidget {
   final DateVoidCallback? onCancel;
   final DateValueCallback? onChange, onConfirm;
   final bool looping;
+  final double squeeze;
+  final double diameterRatio;
 
   @override
   State<StatefulWidget> createState() =>
@@ -197,9 +201,10 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               child: CupertinoPicker(
                 selectionOverlay: Container(),
                 backgroundColor: widget.pickerTheme!.backgroundColor,
+                selectionOverlay: Container(),
                 scrollController: scrollCtrl,
-                squeeze: 0.95,
-                diameterRatio: 1.5,
+                squeeze: widget.squeeze,
+                diameterRatio: widget.diameterRatio,
                 itemExtent: widget.pickerTheme!.itemHeight,
                 onSelectedItemChanged: valueChanged,
                 looping: widget.looping,
