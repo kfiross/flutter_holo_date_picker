@@ -38,7 +38,7 @@ class MyHomePage extends StatelessWidget {
                 firstDate: DateTime(1960),
                 lastDate: DateTime(2012),
                 dateFormat: "dd-MMMM-yyyy",
-                locale: DateTimePickerLocale.en_us,
+                locale: DateTimePickerLocale.nl,
                 looping: true,
               );
 
