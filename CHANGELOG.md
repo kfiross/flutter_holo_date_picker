@@ -1,3 +1,6 @@
+## [1.0.1+2]
+* Fixed pub.dev score.
+
 ## [1.0.1]
 * Added support for languages: `Lithuanian`, `Dutch` and `Haitian Creole`
 
@@ -24,7 +27,7 @@
 * Added Thai language support.
 
 ## [0.3.1+1]
-* Fixed score. 
+* Fixed pub.dev score. 
 
 ## [0.3.1]
 * Fixed bug with 'month' text losing form on smaller screens (#19) 

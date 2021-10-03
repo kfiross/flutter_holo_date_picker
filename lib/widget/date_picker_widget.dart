@@ -280,7 +280,8 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         //     color: widget.pickerTheme!.itemTextStyle.color,
         //     fontSize: fontSize ?? widget.pickerTheme!.itemTextStyle.fontSize
         // ),
-        style: widget.pickerTheme?.itemTextStyle ?? DATETIME_PICKER_ITEM_TEXT_STYLE,
+        style: widget.pickerTheme?.itemTextStyle ??
+            DATETIME_PICKER_ITEM_TEXT_STYLE,
       ),
     );
   }
