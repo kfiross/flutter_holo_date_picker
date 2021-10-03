@@ -1,3 +1,9 @@
+## [1.0.1]
+* Added support for languages: `Lithuanian`, `Dutch` and `Haitian Creole`
+
+## [1.0.0-nullsafety.4]
+* Fixed ui bug
+
 ## [1.0.0-nullsafety.3]
 * Fixed using `itemTextStyle` for picker
 

@@ -34,4 +34,7 @@ See the example for simple use :)
 - Norwegian (NO)
 - French (FR)
 - Thai (TH)
+- Lithuanian (LT)
+- Dutch (NL)
+- Haitian Creole (HT)
 
