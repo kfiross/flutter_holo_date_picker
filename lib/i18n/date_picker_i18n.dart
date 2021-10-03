@@ -20,6 +20,7 @@ part 'strings_tr.dart';
 part 'strings_zh_cn.dart';
 part 'strings_fr.dart';
 part 'strings_th.dart';
+part 'strings_lt.dart';
 part 'strings_nl.dart';
 
 abstract class _StringsI18n {
@@ -101,7 +102,10 @@ enum DateTimePickerLocale {
 
   /// Thai (TH)
   th,
-
+  
+  /// Lithuaniana (LT)
+  lt,
+  
   /// Dutch (NL)
   nl,
 }
@@ -132,6 +136,7 @@ const Map<DateTimePickerLocale, _StringsI18n> datePickerI18n = {
   DateTimePickerLocale.nl: const _StringsNl(),
   DateTimePickerLocale.fr: const _StringsFr(),
   DateTimePickerLocale.th: const _StringsTh(),
+  DateTimePickerLocale.lt: const _StringsLt(),
 };
 
 class DatePickerI18n {

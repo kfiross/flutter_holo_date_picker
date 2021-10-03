@@ -276,10 +276,11 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       child: AutoSizeText(
         DateTimeFormatter.formatDateTime(value, format, widget.locale, weekday),
         maxLines: 1,
-        style: TextStyle(
-            color: widget.pickerTheme!.itemTextStyle.color,
-            fontSize: fontSize ?? widget.pickerTheme!.itemTextStyle.fontSize),
-        //widget.pickerTheme.itemTextStyle ?? DATETIME_PICKER_ITEM_TEXT_STYLE,
+        // style: TextStyle(
+        //     color: widget.pickerTheme!.itemTextStyle.color,
+        //     fontSize: fontSize ?? widget.pickerTheme!.itemTextStyle.fontSize
+        // ),
+        style: widget.pickerTheme?.itemTextStyle ?? DATETIME_PICKER_ITEM_TEXT_STYLE,
       ),
     );
   }
