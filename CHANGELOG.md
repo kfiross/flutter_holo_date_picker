@@ -1,3 +1,6 @@
+## [1.0.0-nullsafety.3]
+* Fixed using `itemTextStyle` for picker
+
 ## [1.0.0-nullsafety.2]
 
 * Fixed that the 1st day of the month wasn't selected (#22)

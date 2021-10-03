@@ -90,22 +90,22 @@ class DatePicker {
   /// confirmText: [String] text of the dialog's confirm button
   /// cancelText: [String] text of the dialog's  cancel button
   static Future<DateTime?> showSimpleDatePicker(
-    BuildContext context, {
-    DateTime? firstDate,
-    DateTime? lastDate,
-    DateTime? initialDate,
-    String? dateFormat,
-    DateTimePickerLocale locale: DATETIME_PICKER_LOCALE_DEFAULT,
-    DateTimePickerMode pickerMode: DateTimePickerMode.date,
-    Color? backgroundColor,
-    Color? textColor,
-    //TextStyle itemTextStyle,
-    String? titleText,
-    String? confirmText,
-    String? cancelText,
-    bool looping: false,
-    bool reverse: false,
-  }) {
+      BuildContext context, {
+        DateTime? firstDate,
+        DateTime? lastDate,
+        DateTime? initialDate,
+        String? dateFormat,
+        DateTimePickerLocale locale: DATETIME_PICKER_LOCALE_DEFAULT,
+        DateTimePickerMode pickerMode: DateTimePickerMode.date,
+        Color? backgroundColor,
+        Color? textColor,
+        TextStyle? itemTextStyle,
+        String? titleText,
+        String? confirmText,
+        String? cancelText,
+        bool looping: false,
+        bool reverse: false,
+      }) {
     DateTime? _selectedDate = initialDate;
     final List<Widget> listButtonActions = [
       TextButton(style: TextButton.styleFrom(primary:textColor),
@@ -160,7 +160,7 @@ class DatePicker {
           locale: locale,
           pickerTheme: DateTimePickerTheme(
             backgroundColor: backgroundColor,
-            itemTextStyle: TextStyle(color: textColor),
+            itemTextStyle: itemTextStyle?? TextStyle(color: textColor),
           ),
           onChange: ((DateTime date, list) {
             print(date);
@@ -170,7 +170,7 @@ class DatePicker {
         ),
       ),
       actions:
-          reverse ? listButtonActions.reversed.toList() : listButtonActions,
+      reverse ? listButtonActions.reversed.toList() : listButtonActions,
     );
     return showDialog(
         useRootNavigator: false,
