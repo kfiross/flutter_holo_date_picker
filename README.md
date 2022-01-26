@@ -37,4 +37,4 @@ See the example for simple use :)
 - Lithuanian (LT)
 - Dutch (NL)
 - Haitian Creole (HT)
-
+- Swedish (SV)
