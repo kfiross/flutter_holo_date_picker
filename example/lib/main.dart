@@ -12,10 +12,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
 //      home: DateTesting(),
       home: Scaffold(
-          appBar: AppBar(
-            title: Text('Holo Datepicker Example'),
-          ),
-          body: MyHomePage(),
+        appBar: AppBar(
+          title: Text('Holo Datepicker Example'),
+        ),
+        body: MyHomePage(),
       ),
       debugShowCheckedModeBanner: false,
     );
@@ -73,32 +73,70 @@ class _WidgetPageState extends State<WidgetPage> {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: DatePickerWidget(
-              looping: false, // default is not looping
-              firstDate: DateTime.now(), //DateTime(1960),
-            //  lastDate: DateTime(2002, 1, 1),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: DatePickerWidget(
+                  looping: false, // default is not looping
+                  firstDate: DateTime.now(), //DateTime(1960),
+                //  lastDate: DateTime(2002, 1, 1),
 //              initialDate: DateTime.now(),// DateTime(1994),
-              dateFormat:
-              "MM-dd(E)",
-           //   "dd-MMMM-yyyy",
+                  dateFormat:
+                  // "MM-dd(E)",
+                 "dd/MMMM/yyyy",
          //     locale: DatePicker.localeFromString('he'),
-              onChange: (DateTime newDate, _) {
-                _selectedDate = newDate;
-                print(_selectedDate);
-              },
-              pickerTheme: DateTimePickerTheme(
-                itemTextStyle: TextStyle(color: Colors.black, fontSize: 19),
-                dividerColor: Colors.blue,
-              ),
+                  onChange: (DateTime newDate, _) {
+                    setState(() {
+                      _selectedDate = newDate;
+                    });
+                    print(_selectedDate);
+                  },
+                  pickerTheme: DateTimePickerTheme(
+                    itemTextStyle: TextStyle(color: Colors.black, fontSize: 19),
+                    dividerColor: Colors.blue,
+                  ),
 
-            ),
+                ),
+              ),
+              Text("${_selectedDate ?? ''}"),
+            ],
           ),
         ),
       ),
     );
+    //var locale = "zh";
+    // return SafeArea(
+    //   child: Scaffold(
+    //     body: Center(
+    //       child: DatePickerWidget(
+    //         locale: //locale == 'zh'
+    //             DateTimePickerLocale.zh_cn
+    //             //  DateTimePickerLocale.en_us
+    //         ,
+    //         lastDate: DateTime.now(),
+    //         // dateFormat: "yyyy : MMM : dd",
+    //         // dateFormat: 'yyyy MMMM dd',
+    //         onChange: (DateTime newDate, _) {
+    //           setState(() {
+    //             var dob = newDate.toString();
+    //             print(dob);
+    //           });
+    //         },
+    //         pickerTheme: DateTimePickerTheme(
+    //           backgroundColor: Colors.transparent,
+    //           dividerColor: const Color(0xffe3e3e3),
+    //           itemTextStyle: TextStyle(
+    //             fontFamily: 'NotoSansTC',
+    //             fontSize: 18,
+    //             fontWeight: FontWeight.w500,
+    //             color: Theme.of(context).primaryColor,
+    //           ),
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    // );
   }
 }
-
-

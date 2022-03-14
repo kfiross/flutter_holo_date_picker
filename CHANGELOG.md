@@ -1,8 +1,17 @@
+## [1.0.3]
+* The `/` is a valid date format
+
+## [1.0.2+1]
+* Fixed `pub.dev` score.
+
+## [1.0.2]
+* Added support for Swedish
+
 ## [1.0.1+2]
-* Fixed pub.dev score.
+* Fixed `pub.dev` score.
 
 ## [1.0.1]
-* Added support for languages: `Lithuanian`, `Dutch` and `Haitian Creole`
+* Added support for languages: Lithuanian, Dutch and Haitian Creole
 
 ## [1.0.0-nullsafety.4]
 * Fixed ui bug
@@ -27,7 +36,7 @@
 * Added Thai language support.
 
 ## [0.3.1+1]
-* Fixed pub.dev score. 
+* Fixed `pub.dev` score. 
 
 ## [0.3.1]
 * Fixed bug with 'month' text losing form on smaller screens (#19) 
