@@ -1,5 +1,8 @@
+## [1.0.4]
+* Added Polish language support.
+
 ## [1.0.3]
-* The `/` is a valid date format
+* The `/` is a valid date format.
 
 ## [1.0.2+1]
 * Fixed `pub.dev` score.
