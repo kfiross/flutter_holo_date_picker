@@ -1,3 +1,6 @@
+## [1.0.5]
+* Added Czech language support.
+
 ## [1.0.4]
 * Added Polish language support.
 
