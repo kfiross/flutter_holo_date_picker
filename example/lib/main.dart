@@ -72,36 +72,49 @@ class _WidgetPageState extends State<WidgetPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: DatePickerWidget(
-                  looping: false, // default is not looping
-                  firstDate: DateTime.now(), //DateTime(1960),
-                //  lastDate: DateTime(2002, 1, 1),
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: FractionalOffset.topCenter,
+              end: FractionalOffset.bottomCenter,
+              colors: [
+                Colors.grey[900]!,
+                Colors.black,
+              ],
+              stops: const [0.7, 1.0],            )
+          ),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: DatePickerWidget(
+                    looping: false, // default is not looping
+                    firstDate: DateTime.now(), //DateTime(1960),
+                  //  lastDate: DateTime(2002, 1, 1),
 //              initialDate: DateTime.now(),// DateTime(1994),
-                  dateFormat:
-                  // "MM-dd(E)",
-                 "dd/MMMM/yyyy",
-         //     locale: DatePicker.localeFromString('he'),
-                  onChange: (DateTime newDate, _) {
-                    setState(() {
-                      _selectedDate = newDate;
-                    });
-                    print(_selectedDate);
-                  },
-                  pickerTheme: DateTimePickerTheme(
-                    itemTextStyle: TextStyle(color: Colors.black, fontSize: 19),
-                    dividerColor: Colors.blue,
-                  ),
+                    dateFormat:
+                    // "MM-dd(E)",
+                   "dd/MMMM/yyyy",
+           //     locale: DatePicker.localeFromString('he'),
+                    onChange: (DateTime newDate, _) {
+                      setState(() {
+                        _selectedDate = newDate;
+                      });
+                      print(_selectedDate);
+                    },
+                    pickerTheme: DateTimePickerTheme(
+                      backgroundColor: Colors.transparent,
+                      itemTextStyle: TextStyle(color: Colors.white, fontSize: 19),
+                      dividerColor: Colors.white,
+                    ),
 
+                  ),
                 ),
-              ),
-              Text("${_selectedDate ?? ''}"),
-            ],
+                Text("${_selectedDate ?? ''}"),
+              ],
+            ),
           ),
         ),
       ),
