@@ -181,7 +181,7 @@ const Map<DateTimePickerLocale, _StringsI18n> datePickerI18n = {
   DateTimePickerLocale.lt: const _StringsLt(),
   DateTimePickerLocale.ht: const _StringsHt(),
   DateTimePickerLocale.sv: const _StringsSv(),
-  DateTimePickerLocale.cz: const _StringsCz()
+  DateTimePickerLocale.cz: const _StringsCz(),
   DateTimePickerLocale.pl: const _StringsPl(),
 };
 
