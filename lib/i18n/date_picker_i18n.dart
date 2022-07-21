@@ -52,7 +52,6 @@ part 'strings_cz.dart';
 
 part 'strings_pl.dart';
 
-
 abstract class _StringsI18n {
   const _StringsI18n();
 

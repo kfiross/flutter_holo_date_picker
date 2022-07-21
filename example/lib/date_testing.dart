@@ -12,7 +12,7 @@ class DateTesting extends StatefulWidget {
 class _DateTestingState extends State {
   static DateTime startDate = DateTime.now();
   String quoteStartDate =
-  DateFormat.yMMMd().format(startDate.add(Duration(days: 1))).toString();
+      DateFormat.yMMMd().format(startDate.add(Duration(days: 1))).toString();
   String endPeriod = DateFormat.yMMMd()
       .format(DateTime.now().add(Duration(days: 30)))
       .toString();
@@ -37,7 +37,7 @@ class _DateTestingState extends State {
                   firstDate:
 // startDate,
 // DateTime(2020),
-                  DateTime.now(),
+                      DateTime.now(),
                   lastDate: DateTime(2030),
                   dateFormat: "yyyy-MMMM-dd",
                   locale: DateTimePickerLocale.en_us,
@@ -81,7 +81,6 @@ class _DateTestingState extends State {
                 setState(() {
                   endPeriod =
                       DateFormat.yMMMd().format(selectedEndDate!).toString();
-
                 });
 
                 print("My date is picked $selectedEndDate");
@@ -89,6 +88,5 @@ class _DateTestingState extends State {
             ),
           ],
         ));
-
   }
 }

@@ -74,15 +74,15 @@ class _WidgetPageState extends State<WidgetPage> {
       child: Scaffold(
         body: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: FractionalOffset.topCenter,
-              end: FractionalOffset.bottomCenter,
-              colors: [
-                Colors.grey[900]!,
-                Colors.black,
-              ],
-              stops: const [0.7, 1.0],            )
-          ),
+              gradient: LinearGradient(
+            begin: FractionalOffset.topCenter,
+            end: FractionalOffset.bottomCenter,
+            colors: [
+              Colors.grey[900]!,
+              Colors.black,
+            ],
+            stops: const [0.7, 1.0],
+          )),
           child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -92,12 +92,12 @@ class _WidgetPageState extends State<WidgetPage> {
                   child: DatePickerWidget(
                     looping: false, // default is not looping
                     firstDate: DateTime.now(), //DateTime(1960),
-                  //  lastDate: DateTime(2002, 1, 1),
+                    //  lastDate: DateTime(2002, 1, 1),
 //              initialDate: DateTime.now(),// DateTime(1994),
                     dateFormat:
-                    // "MM-dd(E)",
-                   "dd/MMMM/yyyy",
-           //     locale: DatePicker.localeFromString('he'),
+                        // "MM-dd(E)",
+                        "dd/MMMM/yyyy",
+                    //     locale: DatePicker.localeFromString('he'),
                     onChange: (DateTime newDate, _) {
                       setState(() {
                         _selectedDate = newDate;
@@ -106,10 +106,10 @@ class _WidgetPageState extends State<WidgetPage> {
                     },
                     pickerTheme: DateTimePickerTheme(
                       backgroundColor: Colors.transparent,
-                      itemTextStyle: TextStyle(color: Colors.white, fontSize: 19),
+                      itemTextStyle:
+                          TextStyle(color: Colors.white, fontSize: 19),
                       dividerColor: Colors.white,
                     ),
-
                   ),
                 ),
                 Text("${_selectedDate ?? ''}"),
