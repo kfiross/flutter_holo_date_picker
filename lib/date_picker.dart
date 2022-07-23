@@ -70,6 +70,27 @@ class DatePicker {
       case 'nn':
         return DateTimePickerLocale.no_nn;
 
+      case 'fr':
+        return DateTimePickerLocale.fr;
+
+      case 'th':
+        return DateTimePickerLocale.th;
+
+      case 'nl':
+        return DateTimePickerLocale.nl;
+
+      case 'ht':
+        return DateTimePickerLocale.ht;
+
+      case 'sv':
+        return DateTimePickerLocale.sv;
+
+      case 'cz':
+        return DateTimePickerLocale.cz;
+
+      case 'pl':
+        return DateTimePickerLocale.pl;
+
       default:
         return DateTimePickerLocale.en_us;
     }
