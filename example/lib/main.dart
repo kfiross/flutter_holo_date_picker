@@ -38,7 +38,7 @@ class MyHomePage extends StatelessWidget {
                 firstDate: DateTime(1960),
                 lastDate: DateTime(2012),
                 dateFormat: "dd-MMMM-yyyy",
-                locale: DateTimePickerLocale.en_us,
+                locale: DateTimePickerLocale.th,
                 looping: true,
               );
 
@@ -97,7 +97,7 @@ class _WidgetPageState extends State<WidgetPage> {
                     dateFormat:
                         // "MM-dd(E)",
                         "dd/MMMM/yyyy",
-                    //     locale: DatePicker.localeFromString('he'),
+                    locale: DatePicker.localeFromString('th'),
                     onChange: (DateTime newDate, _) {
                       setState(() {
                         _selectedDate = newDate;
