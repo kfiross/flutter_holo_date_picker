@@ -1,3 +1,6 @@
+## [1.0.6]
+* Updated `DatePicker.localeFromString` function with the missing locales.
+
 ## [1.0.5]
 * Added Czech language support.
 
