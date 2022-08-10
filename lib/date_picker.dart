@@ -125,8 +125,8 @@ class DatePicker {
     String? cancelText,
     bool looping: false,
     bool reverse: false,
-    double? spacerHeight,
-    double? spackerThickness,
+    double? dividerHeight,
+    double? dividerThickness,
   }) {
     DateTime? _selectedDate = initialDate;
     final List<Widget> listButtonActions = [
@@ -191,8 +191,8 @@ class DatePicker {
             _selectedDate = date;
           }),
           looping: looping,
-          spacerHeight: spacerHeight,
-          spacerThickness: spackerThickness,
+          dividerHeight: dividerHeight,
+          dividerThickness: dividerThickness,
         ),
       ),
       actions:
