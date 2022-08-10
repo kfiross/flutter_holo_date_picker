@@ -26,6 +26,8 @@ class DatePickerWidget extends StatefulWidget {
     this.onChange,
     this.onConfirm,
     this.looping: false,
+    this.spacerHeight,
+    this.spacerThickness,
   }) : super(key: key) {
     DateTime minTime = firstDate ?? DateTime.parse(DATE_PICKER_MIN_DATETIME);
     DateTime maxTime = lastDate ?? DateTime.parse(DATE_PICKER_MAX_DATETIME);
@@ -36,6 +38,8 @@ class DatePickerWidget extends StatefulWidget {
   final String? dateFormat;
   final DateTimePickerLocale? locale;
   final DateTimePickerTheme? pickerTheme;
+  final double? spacerHeight;
+  final double? spacerThickness;
 
   final DateVoidCallback? onCancel;
   final DateValueCallback? onChange, onConfirm;
@@ -227,8 +231,8 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                       child: Divider(
                         color: widget.pickerTheme!.dividerColor ??
                             widget.pickerTheme!.itemTextStyle.color,
-                        height: 1,
-                        thickness: 2,
+                        height: widget.spacerHeight,
+                        thickness: widget.spacerThickness,
                       ),
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width * 0.02)
