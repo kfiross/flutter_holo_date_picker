@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -58,7 +57,10 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
   late Map<String, List<int>?> _valueRangeMap;
 
   bool _isChangeDateRange = false;
-
+  // whene change year the returned month is incorrect with the shown one
+  // So _lock make sure that month doesn't change from cupertino widget
+  // we will handle it manually
+  bool _lock = false;
   _DatePickerWidgetState(
       DateTime? minDateTime, DateTime? maxDateTime, DateTime? initialDateTime) {
     // handle current selected year、month、day
@@ -77,8 +79,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
     // limit the range of month
     this._monthRange = _calcMonthRange();
-    this._currMonth =
-        min(max(_monthRange!.first, _currMonth!), _monthRange!.last);
+    this._currMonth = _calcCurrentMonth();
 
     // limit the range of day
     this._dayRange = _calcDayRange();
@@ -162,8 +163,14 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
           format: format,
           valueChanged: (value) {
             if (format.contains('y')) {
+              _lock = true;
               _changeYearSelection(value);
+              _lock = false;
             } else if (format.contains('M')) {
+              if (_lock) {
+                _lock = false;
+                return;
+              }
               _changeMonthSelection(value);
             } else if (format.contains('d')) {
               _changeDaySelection(value);
@@ -298,9 +305,12 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
   /// change the selection of month picker
   void _changeMonthSelection(int index) {
+    _monthRange = _calcMonthRange();
+
     int month = _monthRange!.first + index;
     if (_currMonth != month) {
       _currMonth = month;
+
       _changeDateRange();
       _onSelectedChange();
     }
@@ -319,6 +329,19 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     }
   }
 
+  // get the correct month
+  int? _calcCurrentMonth() {
+    int? _currMonth = this._currMonth!;
+    List<int> monthRange = _calcMonthRange();
+    if (_currMonth < monthRange.last) {
+      _currMonth = max(_currMonth, monthRange.first);
+    } else {
+      _currMonth = max(monthRange.last, monthRange.first);
+    }
+
+    return _currMonth;
+  }
+
   /// change range of month and day
   void _changeDateRange() {
     if (_isChangeDateRange) {
@@ -331,7 +354,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         _monthRange!.last != monthRange.last;
     if (monthRangeChanged) {
       // selected year changed
-      _currMonth = max(min(_currMonth!, monthRange.last), monthRange.first);
+      _currMonth = _calcCurrentMonth();
     }
 
     List<int> dayRange = _calcDayRange();
