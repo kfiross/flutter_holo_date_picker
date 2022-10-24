@@ -34,9 +34,9 @@ class MyHomePage extends StatelessWidget {
             onPressed: () async {
               var datePicked = await DatePicker.showSimpleDatePicker(
                 context,
-                initialDate: DateTime(1994),
-                firstDate: DateTime(1960),
-                lastDate: DateTime(2012),
+                initialDate: DateTime(2020),
+                firstDate: DateTime(2020),
+                lastDate: DateTime(2090),
                 dateFormat: "dd-MMMM-yyyy",
                 locale: DateTimePickerLocale.th,
                 looping: true,
@@ -91,7 +91,7 @@ class _WidgetPageState extends State<WidgetPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: DatePickerWidget(
                     looping: false, // default is not looping
-                    firstDate: DateTime.now(), //DateTime(1960),
+                    firstDate: DateTime.now(),
                     //  lastDate: DateTime(2002, 1, 1),
 //              initialDate: DateTime.now(),// DateTime(1994),
                     dateFormat:
