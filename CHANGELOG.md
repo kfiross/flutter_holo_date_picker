@@ -1,3 +1,6 @@
+## [1.1.0]
+* Merged issue #53 (Incorrect month selected not same on picker display)
+
 ## [1.0.6]
 * Updated `DatePicker.localeFromString` function with the missing locales.
 
