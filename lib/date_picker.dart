@@ -107,6 +107,7 @@ class DatePicker {
   /// backgroundColor: [Color] background color of the dialog
   /// itemTextStyle: [TextStyle] item TextStyle of the picker
   /// titleText: [String] text of the dialog's title
+  /// titleTextStyle: [TextStyle] item TextStyle of the dialog's title
   /// confirmText: [String] text of the dialog's confirm button
   /// cancelText: [String] text of the dialog's  cancel button
   static Future<DateTime?> showSimpleDatePicker(
@@ -121,6 +122,7 @@ class DatePicker {
     Color? textColor,
     TextStyle? itemTextStyle,
     String? titleText,
+    TextStyle? titleTextStyle,
     String? confirmText,
     String? cancelText,
     bool looping: false,
@@ -157,18 +159,16 @@ class DatePicker {
       initialDate = DateTime.now();
     }
 
-    if (backgroundColor == null)
-      backgroundColor = DateTimePickerTheme.Default.backgroundColor;
+    if (backgroundColor == null) backgroundColor = DateTimePickerTheme.Default.backgroundColor;
 //    if (itemTextStyle == null)
 //      itemTextStyle = DateTimePickerTheme.Default.itemTextStyle;
 
-    if (textColor == null)
-      textColor = DateTimePickerTheme.Default.itemTextStyle.color;
+    if (textColor == null) textColor = DateTimePickerTheme.Default.itemTextStyle.color;
 
     var datePickerDialog = AlertDialog(
       title: Text(
         titleText ?? "Select Date",
-        style: TextStyle(color: textColor),
+        style: titleTextStyle ?? TextStyle(color: textColor),
       ),
       contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 14),
       backgroundColor: backgroundColor,
@@ -191,13 +191,9 @@ class DatePicker {
           looping: looping,
         ),
       ),
-      actions:
-          reverse ? listButtonActions.reversed.toList() : listButtonActions,
+      actions: reverse ? listButtonActions.reversed.toList() : listButtonActions,
     );
-    return showDialog(
-        useRootNavigator: false,
-        context: context,
-        builder: (context) => datePickerDialog);
+    return showDialog(useRootNavigator: false, context: context, builder: (context) => datePickerDialog);
   }
 }
 
@@ -246,14 +242,12 @@ class _DatePickerRoute<T> extends PopupRoute<T> {
   @override
   AnimationController createAnimationController() {
     assert(_animationController == null);
-    _animationController =
-        BottomSheet.createAnimationController(navigator!.overlay!);
+    _animationController = BottomSheet.createAnimationController(navigator!.overlay!);
     return _animationController!;
   }
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     double height = pickerTheme!.pickerHeight;
     if (pickerTheme!.title != null || pickerTheme!.showTitle) {
       height += pickerTheme!.titleHeight;
@@ -276,8 +270,7 @@ class _DatePickerComponent extends StatelessWidget {
   final _DatePickerRoute route;
   final double _pickerHeight;
 
-  _DatePickerComponent({required this.route, required pickerHeight})
-      : this._pickerHeight = pickerHeight;
+  _DatePickerComponent({required this.route, required pickerHeight}) : this._pickerHeight = pickerHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -298,8 +291,7 @@ class _DatePickerComponent extends StatelessWidget {
         builder: (BuildContext context, Widget? child) {
           return ClipRect(
             child: CustomSingleChildLayout(
-              delegate: _BottomPickerLayout(route.animation!.value,
-                  contentHeight: _pickerHeight),
+              delegate: _BottomPickerLayout(route.animation!.value, contentHeight: _pickerHeight),
               child: pickerWidget,
             ),
           );
