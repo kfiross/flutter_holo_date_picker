@@ -1,5 +1,5 @@
 name: holo_date_picker_example
-description: flutter_holo_date_picker package exmaple project
+description: flutter_holo_date_picker_widget package exmaple project
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -24,7 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-  flutter_holo_date_picker:
+  flutter_holo_date_picker_widget:
     path: ../
 
   intl: ^0.17.0

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
+import 'package:flutter_holo_date_picker_widget/flutter_holo_date_picker_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 //      home: DateTesting(),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Holo Datepicker Example'),
+          title: Text('Holo Date Picker Example'),
         ),
         body: MyHomePage(),
       ),

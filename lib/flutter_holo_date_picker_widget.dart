@@ -1,4 +1,4 @@
-library flutter_holo_date_picker;
+library flutter_holo_date_picker_widget;
 
 export 'date_picker.dart';
 export 'i18n/date_picker_i18n.dart';
