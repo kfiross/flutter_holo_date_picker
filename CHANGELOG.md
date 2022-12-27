@@ -1,3 +1,6 @@
+## [1.1.2]
+* Fix deprecated code.
+
 ## [1.1.1]
 * Fix divider position.
 
