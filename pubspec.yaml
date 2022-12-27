@@ -1,7 +1,7 @@
-name: flutter_holo_date_picker
-description: A Flutter package of Datepicker that looks like Holo Theme in Android.
-version: 1.0.6
-homepage: https://github.com/kfiross/flutter_holo_date_picker
+name: flutter_holo_date_picker_widget
+description: A Clone of Flutter Holo Date Picker. A Flutter package of Datepicker inspired by the Holo Theme in Android.
+version: 1.1.2
+homepage: https://github.com/danoetz/flutter_holo_date_picker_widget
 
 environment:
   sdk: '>=2.12.0 <3.0.0'

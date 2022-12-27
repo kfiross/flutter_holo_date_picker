@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
+import 'package:flutter_holo_date_picker_widget/flutter_holo_date_picker_widget.dart';
 import 'package:intl/intl.dart';
 
 class DateTesting extends StatefulWidget {

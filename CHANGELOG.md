@@ -1,3 +1,12 @@
+## [1.1.2]
+* Fix deprecated code.
+
+## [1.1.1]
+* Fix divider position.
+
+## [1.1.0]
+* Merged issue #53 (Incorrect month selected not same on picker display).
+
 ## [1.0.6]
 * Updated `DatePicker.localeFromString` function with the missing locales.
 

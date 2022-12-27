@@ -225,7 +225,9 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
           ),
           Positioned(
             child: Container(
-                margin: const EdgeInsets.only(top: 63),
+                margin: EdgeInsets.only(
+                    top: (widget.pickerTheme!.pickerHeight / 2) -
+                        (widget.pickerTheme!.itemHeight / 2)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -244,7 +246,9 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
           ),
           Positioned(
             child: Container(
-                margin: const EdgeInsets.only(top: 99),
+                margin: EdgeInsets.only(
+                    top: (widget.pickerTheme!.pickerHeight / 2) +
+                        (widget.pickerTheme!.itemHeight / 2)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
