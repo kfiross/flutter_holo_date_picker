@@ -142,32 +142,47 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
   Widget _renderDatePickerWidget() {
     List<Widget> pickers = [];
     List<String> formatArr = DateTimeFormatter.splitDateFormat(widget.dateFormat);
-    formatArr.forEach((format) {
-      List<int> valueRange = _findPickerItemRange(format)!;
+    formatArr.forEach(
+      (format) {
+        List<int> valueRange = _findPickerItemRange(format)!;
 
-      Widget pickerColumn = _renderDatePickerColumnComponent(
-          scrollCtrl: _findScrollCtrl(format),
-          valueRange: valueRange,
-          format: format,
-          valueChanged: (value) {
-            if (format.contains('y')) {
-              _lock = true;
-              _changeYearSelection(value);
-              _lock = false;
-            } else if (format.contains('M')) {
-              if (_lock) {
+        Widget pickerColumn = _renderDatePickerColumnComponent(
+            scrollCtrl: _findScrollCtrl(format),
+            valueRange: valueRange,
+            format: format,
+            valueChanged: (value) {
+              if (format.contains('y')) {
+                _lock = true;
+                _changeYearSelection(value);
                 _lock = false;
-                return;
+              } else if (format.contains('M')) {
+                if (_lock) {
+                  _lock = false;
+                  return;
+                }
+                _changeMonthSelection(value);
+              } else if (format.contains('d')) {
+                _changeDaySelection(value);
               }
-              _changeMonthSelection(value);
-            } else if (format.contains('d')) {
-              _changeDaySelection(value);
-            }
-          },
-          fontSize: widget.pickerTheme!.itemTextStyle.fontSize ?? sizeByFormat(widget.dateFormat!));
-      pickers.add(pickerColumn);
-    });
+            },
+            fontSize: widget.pickerTheme!.itemTextStyle.fontSize ?? sizeByFormat(widget.dateFormat!));
+        pickers.add(pickerColumn);
+      },
+    );
     return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: pickers);
+  }
+
+  Widget _dividerWidget() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: widget.pickerTheme!.dividerSpacing ?? MediaQuery.of(context).size.width * 0.02,
+      ),
+      child: Divider(
+        color: widget.pickerTheme!.dividerColor ?? widget.pickerTheme!.itemTextStyle.color,
+        height: widget.pickerTheme!.dividerHeight ?? DATETIME_PICKER_DIVIDER_HEIGHT,
+        thickness: widget.pickerTheme!.dividerThickness ?? DATETIME_PICKER_DIVIDER_THICKNESS,
+      ),
+    );
   }
 
   Widget _renderDatePickerColumnComponent(
@@ -190,8 +205,8 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 selectionOverlay: Container(),
                 backgroundColor: widget.pickerTheme!.backgroundColor,
                 scrollController: scrollCtrl,
-                squeeze: 0.95,
-                diameterRatio: 1.5,
+                squeeze: widget.pickerTheme?.squeeze ?? DATETIME_PICKER_SQUEEZE,
+                diameterRatio: widget.pickerTheme?.diameterRatio ?? DATETIME_PICKER_DIAMETER_RATIO,
                 itemExtent: widget.pickerTheme!.itemHeight,
                 onSelectedItemChanged: valueChanged,
                 looping: widget.looping,
@@ -210,39 +225,19 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
           ),
           Positioned(
             child: Container(
-                margin: const EdgeInsets.only(top: 63),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                    Expanded(
-                      child: Divider(
-                        color: widget.pickerTheme!.dividerColor ?? widget.pickerTheme!.itemTextStyle.color,
-                        height: 1,
-                        thickness: 2,
-                      ),
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02)
-                  ],
-                )),
+              margin: EdgeInsets.only(
+                top: (widget.pickerTheme!.pickerHeight / 2) - (widget.pickerTheme!.itemHeight / 2),
+              ),
+              child: _dividerWidget(),
+            ),
           ),
           Positioned(
             child: Container(
-                margin: const EdgeInsets.only(top: 99),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                    Expanded(
-                      child: Divider(
-                        color: widget.pickerTheme!.dividerColor ?? widget.pickerTheme!.itemTextStyle.color,
-                        height: 1,
-                        thickness: 2,
-                      ),
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                  ],
-                )),
+              margin: EdgeInsets.only(
+                top: (widget.pickerTheme!.pickerHeight / 2) + (widget.pickerTheme!.itemHeight / 2),
+              ),
+              child: _dividerWidget(),
+            ),
           ),
         ],
       ),

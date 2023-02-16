@@ -22,6 +22,18 @@ const Color DATETIME_PICKER_ITEM_TEXT_COLOR = Colors.black;
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_SMALL = 15;
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_BIG = 17;
 
+/// Default value of DatePicker's divider height.
+const double DATETIME_PICKER_DIVIDER_HEIGHT = 1.0;
+
+/// Default value of DatePicker's divider thickness.
+const double DATETIME_PICKER_DIVIDER_THICKNESS = 2.0;
+
+/// Default value of DatePicker's diameter ratio.
+const double DATETIME_PICKER_DIAMETER_RATIO = 1.5;
+
+/// Default value of DatePicker's divider thickness.
+const double DATETIME_PICKER_SQUEEZE = 0.95;
+
 /// To support both stable and beta channels until
 /// 'DiagnosticableMixin' is officially deprecated.
 class DateTimePickerTheme {
@@ -52,11 +64,12 @@ class DateTimePickerTheme {
     this.titleHeight = DATETIME_PICKER_TITLE_HEIGHT,
     this.itemHeight = DATETIME_PICKER_ITEM_HEIGHT,
     this.itemTextStyle = DATETIME_PICKER_ITEM_TEXT_STYLE,
-    this.dividerHeight,
+    this.dividerHeight = DATETIME_PICKER_DIVIDER_HEIGHT,
+    this.dividerThickness = DATETIME_PICKER_DIVIDER_THICKNESS,
     this.dividerSpacing,
-    this.dividerThickness,
-    this.dividerPadding,
     this.dividerColor,
+    this.squeeze = DATETIME_PICKER_SQUEEZE,
+    this.diameterRatio = DATETIME_PICKER_DIAMETER_RATIO,
   });
 
   static const DateTimePickerTheme Default = const DateTimePickerTheme();
@@ -103,9 +116,12 @@ class DateTimePickerTheme {
   /// The value of DatePicker's Divider thickness.
   final double? dividerThickness;
 
-  /// The value of DatePicker's Divider spacing.
+  /// The value of DatePicker's Divider padding.
   final double? dividerSpacing;
 
-  /// The value of DatePicker's Divider padding.
-  final EdgeInsetsGeometry? dividerPadding;
+  /// The value of DatePicker's squeeze.
+  final double? squeeze;
+
+  /// The value of DatePicker's diameter ratio.
+  final double? diameterRatio;
 }
