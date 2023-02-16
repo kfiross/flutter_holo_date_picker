@@ -16,12 +16,23 @@ const double DATETIME_PICKER_TITLE_HEIGHT = 36.0;
 const double DATETIME_PICKER_ITEM_HEIGHT = 36.0;
 
 /// Default value of DatePicker's item [TextStyle].
-const TextStyle DATETIME_PICKER_ITEM_TEXT_STYLE =
-    const TextStyle(color: Colors.black, fontSize: 16.0);
+const TextStyle DATETIME_PICKER_ITEM_TEXT_STYLE = const TextStyle(color: Colors.black, fontSize: 16.0);
 
 const Color DATETIME_PICKER_ITEM_TEXT_COLOR = Colors.black;
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_SMALL = 15;
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_BIG = 17;
+
+/// Default value of DatePicker's divider height.
+const double DATETIME_PICKER_DIVIDER_HEIGHT = 1.0;
+
+/// Default value of DatePicker's divider thickness.
+const double DATETIME_PICKER_DIVIDER_THICKNESS = 2.0;
+
+/// Default value of DatePicker's diameter ratio.
+const double DATETIME_PICKER_DIAMETER_RATIO = 1.5;
+
+/// Default value of DatePicker's divider thickness.
+const double DATETIME_PICKER_SQUEEZE = 0.95;
 
 /// To support both stable and beta channels until
 /// 'DiagnosticableMixin' is officially deprecated.
@@ -42,18 +53,23 @@ class DateTimePickerTheme {
   /// [itemHeight] The value of DatePicker's column height.
   /// [itemTextStyle] The value of DatePicker's column [TextStyle].
   const DateTimePickerTheme({
-    this.backgroundColor: DATETIME_PICKER_BACKGROUND_COLOR,
+    this.backgroundColor = DATETIME_PICKER_BACKGROUND_COLOR,
     this.cancelTextStyle,
     this.confirmTextStyle,
     this.cancel,
     this.confirm,
     this.title,
-    this.showTitle: DATETIME_PICKER_SHOW_TITLE_DEFAULT,
-    this.pickerHeight: DATETIME_PICKER_HEIGHT,
-    this.titleHeight: DATETIME_PICKER_TITLE_HEIGHT,
-    this.itemHeight: DATETIME_PICKER_ITEM_HEIGHT,
-    this.itemTextStyle: DATETIME_PICKER_ITEM_TEXT_STYLE,
+    this.showTitle = DATETIME_PICKER_SHOW_TITLE_DEFAULT,
+    this.pickerHeight = DATETIME_PICKER_HEIGHT,
+    this.titleHeight = DATETIME_PICKER_TITLE_HEIGHT,
+    this.itemHeight = DATETIME_PICKER_ITEM_HEIGHT,
+    this.itemTextStyle = DATETIME_PICKER_ITEM_TEXT_STYLE,
+    this.dividerHeight = DATETIME_PICKER_DIVIDER_HEIGHT,
+    this.dividerThickness = DATETIME_PICKER_DIVIDER_THICKNESS,
+    this.dividerSpacing,
     this.dividerColor,
+    this.squeeze = DATETIME_PICKER_SQUEEZE,
+    this.diameterRatio = DATETIME_PICKER_DIAMETER_RATIO,
   });
 
   static const DateTimePickerTheme Default = const DateTimePickerTheme();
@@ -93,4 +109,19 @@ class DateTimePickerTheme {
 
   /// The value of DatePicker's Divider Color [TextStyle].
   final Color? dividerColor;
+
+  /// The value of DatePicker's Divider height.
+  final double? dividerHeight;
+
+  /// The value of DatePicker's Divider thickness.
+  final double? dividerThickness;
+
+  /// The value of DatePicker's Divider padding.
+  final double? dividerSpacing;
+
+  /// The value of DatePicker's squeeze.
+  final double? squeeze;
+
+  /// The value of DatePicker's diameter ratio.
+  final double? diameterRatio;
 }

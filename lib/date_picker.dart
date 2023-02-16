@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'date_picker_theme.dart';
 import 'date_picker_constants.dart';
+import 'date_picker_theme.dart';
 import 'i18n/date_picker_i18n.dart';
 import 'widget/date_picker_widget.dart';
 
@@ -115,28 +115,28 @@ class DatePicker {
     DateTime? lastDate,
     DateTime? initialDate,
     String? dateFormat,
-    DateTimePickerLocale locale: DATETIME_PICKER_LOCALE_DEFAULT,
-    DateTimePickerMode pickerMode: DateTimePickerMode.date,
+    DateTimePickerLocale locale = DATETIME_PICKER_LOCALE_DEFAULT,
+    DateTimePickerMode pickerMode = DateTimePickerMode.date,
     Color? backgroundColor,
     Color? textColor,
     TextStyle? itemTextStyle,
     String? titleText,
     String? confirmText,
     String? cancelText,
-    bool looping: false,
-    bool reverse: false,
+    bool looping = false,
+    bool reverse = false,
   }) {
     DateTime? _selectedDate = initialDate;
     final List<Widget> listButtonActions = [
       TextButton(
-        style: TextButton.styleFrom(primary: textColor),
+        style: TextButton.styleFrom(backgroundColor: textColor),
         child: Text(confirmText ?? "OK"),
         onPressed: () {
           Navigator.pop(context, _selectedDate);
         },
       ),
       TextButton(
-        style: TextButton.styleFrom(primary: textColor),
+        style: TextButton.styleFrom(backgroundColor: textColor),
         child: Text(cancelText ?? "Cancel"),
         onPressed: () {
           Navigator.pop(context);
@@ -157,13 +157,11 @@ class DatePicker {
       initialDate = DateTime.now();
     }
 
-    if (backgroundColor == null)
-      backgroundColor = DateTimePickerTheme.Default.backgroundColor;
+    if (backgroundColor == null) backgroundColor = DateTimePickerTheme.Default.backgroundColor;
 //    if (itemTextStyle == null)
 //      itemTextStyle = DateTimePickerTheme.Default.itemTextStyle;
 
-    if (textColor == null)
-      textColor = DateTimePickerTheme.Default.itemTextStyle.color;
+    if (textColor == null) textColor = DateTimePickerTheme.Default.itemTextStyle.color;
 
     var datePickerDialog = AlertDialog(
       title: Text(
@@ -191,13 +189,9 @@ class DatePicker {
           looping: looping,
         ),
       ),
-      actions:
-          reverse ? listButtonActions.reversed.toList() : listButtonActions,
+      actions: reverse ? listButtonActions.reversed.toList() : listButtonActions,
     );
-    return showDialog(
-        useRootNavigator: false,
-        context: context,
-        builder: (context) => datePickerDialog);
+    return showDialog(useRootNavigator: false, context: context, builder: (context) => datePickerDialog);
   }
 }
 
@@ -246,14 +240,12 @@ class _DatePickerRoute<T> extends PopupRoute<T> {
   @override
   AnimationController createAnimationController() {
     assert(_animationController == null);
-    _animationController =
-        BottomSheet.createAnimationController(navigator!.overlay!);
+    _animationController = BottomSheet.createAnimationController(navigator!.overlay!);
     return _animationController!;
   }
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     double height = pickerTheme!.pickerHeight;
     if (pickerTheme!.title != null || pickerTheme!.showTitle) {
       height += pickerTheme!.titleHeight;
@@ -276,8 +268,7 @@ class _DatePickerComponent extends StatelessWidget {
   final _DatePickerRoute route;
   final double _pickerHeight;
 
-  _DatePickerComponent({required this.route, required pickerHeight})
-      : this._pickerHeight = pickerHeight;
+  _DatePickerComponent({required this.route, required pickerHeight}) : this._pickerHeight = pickerHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -298,8 +289,7 @@ class _DatePickerComponent extends StatelessWidget {
         builder: (BuildContext context, Widget? child) {
           return ClipRect(
             child: CustomSingleChildLayout(
-              delegate: _BottomPickerLayout(route.animation!.value,
-                  contentHeight: _pickerHeight),
+              delegate: _BottomPickerLayout(route.animation!.value, contentHeight: _pickerHeight),
               child: pickerWidget,
             ),
           );
