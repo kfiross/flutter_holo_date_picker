@@ -1,3 +1,6 @@
+## [1.1.1]
+* Added Serbian Latin (SR) language support.
+
 ## [1.1.0]
 * Merged issue #53 (Incorrect month selected not same on picker display)
 
@@ -5,10 +8,10 @@
 * Updated `DatePicker.localeFromString` function with the missing locales.
 
 ## [1.0.5]
-* Added Czech language support.
+* Added Czech (CZ) language support.
 
 ## [1.0.4]
-* Added Polish language support.
+* Added Polish (PL) language support.
 
 ## [1.0.3]
 * The `/` is a valid date format.
