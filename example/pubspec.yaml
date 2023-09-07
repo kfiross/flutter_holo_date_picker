@@ -14,7 +14,7 @@ description: flutter_holo_date_picker package exmaple project
 version: 1.0.0
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.18.2 <3.0.0'
 
 dependencies:
   flutter:

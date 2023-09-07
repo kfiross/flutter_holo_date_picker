@@ -1,3 +1,6 @@
+## [1.1.2]
+* Bump dart sdk constraint to `2.18.2`
+
 ## [1.1.1]
 * Added Serbian Latin (SR) language support.
 
