@@ -144,7 +144,7 @@ class DateTimeFormatter {
   static String _formatYear(
       int value, String format, DateTimePickerLocale? locale) {
     // TH Locale using 543 more years, e.g. 2022CE is 2565BE
-    if(locale == DateTimePickerLocale.th){
+    if (locale == DateTimePickerLocale.th) {
       value += 543;
     }
     if (format.contains('yyyy')) {

@@ -115,16 +115,16 @@ class DatePicker {
     DateTime? lastDate,
     DateTime? initialDate,
     String? dateFormat,
-    DateTimePickerLocale locale=DATETIME_PICKER_LOCALE_DEFAULT,
-    DateTimePickerMode pickerMode=DateTimePickerMode.date,
+    DateTimePickerLocale locale = DATETIME_PICKER_LOCALE_DEFAULT,
+    DateTimePickerMode pickerMode = DateTimePickerMode.date,
     Color? backgroundColor,
     Color? textColor,
     TextStyle? itemTextStyle,
     String? titleText,
     String? confirmText,
     String? cancelText,
-    bool looping=false,
-    bool reverse=false,
+    bool looping = false,
+    bool reverse = false,
   }) {
     DateTime? _selectedDate = initialDate;
     final List<Widget> listButtonActions = [
