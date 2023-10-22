@@ -1,3 +1,6 @@
+## [1.1.3]
+* Fixed bug that when user select today's date - date is `null`
+
 ## [1.1.2]
 * Bump dart sdk constraint to `2.18.2`
 
