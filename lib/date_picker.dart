@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_holo_date_picker/widget/date_ext.dart';
 
 import 'date_picker_theme.dart';
 import 'date_picker_constants.dart';
@@ -126,7 +127,7 @@ class DatePicker {
     bool looping = false,
     bool reverse = false,
   }) {
-    DateTime? _selectedDate = initialDate;
+    DateTime? _selectedDate = initialDate ?? DateTime.now().startOfDay();
     final List<Widget> listButtonActions = [
       TextButton(
         style: TextButton.styleFrom(foregroundColor: textColor),

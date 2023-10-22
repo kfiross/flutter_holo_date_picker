@@ -34,11 +34,11 @@ class MyHomePage extends StatelessWidget {
             onPressed: () async {
               var datePicked = await DatePicker.showSimpleDatePicker(
                 context,
-                initialDate: DateTime(2020),
+                // initialDate: DateTime(2020),
                 firstDate: DateTime(2020),
                 lastDate: DateTime(2090),
                 dateFormat: "dd-MMMM-yyyy",
-                locale: DateTimePickerLocale.th,
+                locale: DateTimePickerLocale.en_us,
                 looping: true,
               );
 
