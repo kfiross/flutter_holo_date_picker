@@ -120,6 +120,7 @@ class DatePicker {
     DateTimePickerMode pickerMode = DateTimePickerMode.date,
     Color? backgroundColor,
     Color? textColor,
+    Color? textButtonColor,
     TextStyle? itemTextStyle,
     String? titleText,
     String? confirmText,
@@ -130,14 +131,14 @@ class DatePicker {
     DateTime? _selectedDate = initialDate ?? DateTime.now().startOfDay();
     final List<Widget> listButtonActions = [
       TextButton(
-        style: TextButton.styleFrom(foregroundColor: textColor),
+        style: TextButton.styleFrom(foregroundColor: textButtonColor),
         child: Text(confirmText ?? "OK"),
         onPressed: () {
           Navigator.pop(context, _selectedDate);
         },
       ),
       TextButton(
-        style: TextButton.styleFrom(foregroundColor: textColor),
+        style: TextButton.styleFrom(foregroundColor: textButtonColor),
         child: Text(cancelText ?? "Cancel"),
         onPressed: () {
           Navigator.pop(context);
