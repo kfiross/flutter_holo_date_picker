@@ -54,6 +54,7 @@ class DateTimePickerTheme {
     this.itemHeight = DATETIME_PICKER_ITEM_HEIGHT,
     this.itemTextStyle = DATETIME_PICKER_ITEM_TEXT_STYLE,
     this.dividerColor,
+    this.pickedDateDecoration
   });
 
   static const DateTimePickerTheme Default = const DateTimePickerTheme();
@@ -93,4 +94,8 @@ class DateTimePickerTheme {
 
   /// The value of DatePicker's Divider Color [TextStyle].
   final Color? dividerColor;
+
+  /// now you can Modify the Decoration around the picked Date [Row].
+  final Decoration? pickedDateDecoration;
+
 }
