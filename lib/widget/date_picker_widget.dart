@@ -202,7 +202,8 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               decoration:
                   BoxDecoration(color: widget.pickerTheme!.backgroundColor),
               child: CupertinoPicker(
-                selectionOverlay: Container(),
+                selectionOverlay:
+                    Container(decoration: widget.pickerTheme!.pickedDateDecoration),
                 backgroundColor: widget.pickerTheme!.backgroundColor,
                 scrollController: scrollCtrl,
                 squeeze: 0.95,
