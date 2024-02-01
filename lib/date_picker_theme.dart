@@ -17,7 +17,7 @@ const double DATETIME_PICKER_ITEM_HEIGHT = 36.0;
 
 /// Default value of DatePicker's item [TextStyle].
 const TextStyle DATETIME_PICKER_ITEM_TEXT_STYLE =
-const TextStyle(color: Colors.black, fontSize: 16.0);
+    const TextStyle(color: Colors.black, fontSize: 16.0);
 
 const Color DATETIME_PICKER_ITEM_TEXT_COLOR = Colors.black;
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_SMALL = 15;
