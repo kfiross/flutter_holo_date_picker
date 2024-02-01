@@ -57,10 +57,12 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
   late Map<String, List<int>?> _valueRangeMap;
 
   bool _isChangeDateRange = false;
+
   // whene change year the returned month is incorrect with the shown one
   // So _lock make sure that month doesn't change from cupertino widget
   // we will handle it manually
   bool _lock = false;
+
   _DatePickerWidgetState(
       DateTime? minDateTime, DateTime? maxDateTime, DateTime? initialDateTime) {
     // handle current selected year、month、day
@@ -184,6 +186,23 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: pickers);
   }
 
+  Widget _dividerWidget() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: widget.pickerTheme!.dividerSpacing ??
+            MediaQuery.of(context).size.width * 0.02,
+      ),
+      child: Divider(
+        color: widget.pickerTheme!.dividerColor ??
+            widget.pickerTheme!.itemTextStyle.color,
+        height:
+            widget.pickerTheme!.dividerHeight ?? DATETIME_PICKER_DIVIDER_HEIGHT,
+        thickness: widget.pickerTheme!.dividerThickness ??
+            DATETIME_PICKER_DIVIDER_THICKNESS,
+      ),
+    );
+  }
+
   Widget _renderDatePickerColumnComponent(
       {required FixedExtentScrollController? scrollCtrl,
       required List<int> valueRange,
@@ -205,8 +224,9 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 selectionOverlay: Container(),
                 backgroundColor: widget.pickerTheme!.backgroundColor,
                 scrollController: scrollCtrl,
-                squeeze: 0.95,
-                diameterRatio: 1.5,
+                squeeze: widget.pickerTheme?.squeeze ?? DATETIME_PICKER_SQUEEZE,
+                diameterRatio: widget.pickerTheme?.diameterRatio ??
+                    DATETIME_PICKER_DIAMETER_RATIO,
                 itemExtent: widget.pickerTheme!.itemHeight,
                 onSelectedItemChanged: valueChanged,
                 looping: widget.looping,
@@ -225,41 +245,21 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
           ),
           Positioned(
             child: Container(
-                margin: const EdgeInsets.only(top: 63),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                    Expanded(
-                      child: Divider(
-                        color: widget.pickerTheme!.dividerColor ??
-                            widget.pickerTheme!.itemTextStyle.color,
-                        height: 1,
-                        thickness: 2,
-                      ),
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02)
-                  ],
-                )),
+              margin: EdgeInsets.only(
+                top: (widget.pickerTheme!.pickerHeight / 2) -
+                    (widget.pickerTheme!.itemHeight / 2),
+              ),
+              child: _dividerWidget(),
+            ),
           ),
           Positioned(
             child: Container(
-                margin: const EdgeInsets.only(top: 99),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                    Expanded(
-                      child: Divider(
-                        color: widget.pickerTheme!.dividerColor ??
-                            widget.pickerTheme!.itemTextStyle.color,
-                        height: 1,
-                        thickness: 2,
-                      ),
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                  ],
-                )),
+              margin: EdgeInsets.only(
+                top: (widget.pickerTheme!.pickerHeight / 2) +
+                    (widget.pickerTheme!.itemHeight / 2),
+              ),
+              child: _dividerWidget(),
+            ),
           ),
         ],
       ),
