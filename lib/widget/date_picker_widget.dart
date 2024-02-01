@@ -57,10 +57,12 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
   late Map<String, List<int>?> _valueRangeMap;
 
   bool _isChangeDateRange = false;
+
   // whene change year the returned month is incorrect with the shown one
   // So _lock make sure that month doesn't change from cupertino widget
   // we will handle it manually
   bool _lock = false;
+
   _DatePickerWidgetState(
       DateTime? minDateTime, DateTime? maxDateTime, DateTime? initialDateTime) {
     // handle current selected year、month、day
@@ -153,7 +155,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
   Widget _renderDatePickerWidget() {
     List<Widget> pickers = [];
     List<String> formatArr =
-    DateTimeFormatter.splitDateFormat(widget.dateFormat);
+        DateTimeFormatter.splitDateFormat(widget.dateFormat);
     formatArr.forEach((format) {
       List<int> valueRange = _findPickerItemRange(format)!;
 
@@ -194,7 +196,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         color: widget.pickerTheme!.dividerColor ??
             widget.pickerTheme!.itemTextStyle.color,
         height:
-        widget.pickerTheme!.dividerHeight ?? DATETIME_PICKER_DIVIDER_HEIGHT,
+            widget.pickerTheme!.dividerHeight ?? DATETIME_PICKER_DIVIDER_HEIGHT,
         thickness: widget.pickerTheme!.dividerThickness ??
             DATETIME_PICKER_DIVIDER_THICKNESS,
       ),
@@ -203,10 +205,10 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
   Widget _renderDatePickerColumnComponent(
       {required FixedExtentScrollController? scrollCtrl,
-        required List<int> valueRange,
-        required String format,
-        required ValueChanged<int> valueChanged,
-        double? fontSize}) {
+      required List<int> valueRange,
+      required String format,
+      required ValueChanged<int> valueChanged,
+      double? fontSize}) {
     return Expanded(
       flex: 1,
       child: Stack(
@@ -217,7 +219,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               padding: EdgeInsets.symmetric(horizontal: 7, vertical: 18),
               height: widget.pickerTheme!.pickerHeight,
               decoration:
-              BoxDecoration(color: widget.pickerTheme!.backgroundColor),
+                  BoxDecoration(color: widget.pickerTheme!.backgroundColor),
               child: CupertinoPicker(
                 selectionOverlay: Container(),
                 backgroundColor: widget.pickerTheme!.backgroundColor,
@@ -230,7 +232,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 looping: widget.looping,
                 children: List<Widget>.generate(
                   valueRange.last - valueRange.first + 1,
-                      (index) {
+                  (index) {
                     return _renderDatePickerItemComponent(
                       valueRange.first + index,
                       format,
