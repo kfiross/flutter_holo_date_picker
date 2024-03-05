@@ -42,16 +42,14 @@ class MyHomePage extends StatelessWidget {
                 looping: true,
               );
 
-              final snackBar =
-                  SnackBar(content: Text("Date Picked $datePicked"));
+              final snackBar = SnackBar(content: Text("Date Picked $datePicked"));
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
           ),
           ElevatedButton(
             child: Text("Show picker widget"),
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => WidgetPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (_) => WidgetPage()));
             },
           )
         ],
@@ -72,49 +70,38 @@ class _WidgetPageState extends State<WidgetPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-            begin: FractionalOffset.topCenter,
-            end: FractionalOffset.bottomCenter,
-            colors: [
-              Colors.grey[900]!,
-              Colors.black,
-            ],
-            stops: const [0.7, 1.0],
-          )),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: DatePickerWidget(
-                    looping: false, // default is not looping
-                    firstDate: DateTime.now(),
-                    //  lastDate: DateTime(2002, 1, 1),
-//              initialDate: DateTime.now(),// DateTime(1994),
-                    dateFormat:
-                        // "MM-dd(E)",
-                        "dd/MMMM/yyyy",
-                    locale: DatePicker.localeFromString('th'),
-                    onChange: (DateTime newDate, _) {
-                      setState(() {
-                        _selectedDate = newDate;
-                      });
-                      print(_selectedDate);
-                    },
-                    pickerTheme: DateTimePickerTheme(
-                      backgroundColor: Colors.transparent,
-                      itemTextStyle:
-                          TextStyle(color: Colors.white, fontSize: 19),
-                      dividerColor: Colors.white,
-                    ),
+        backgroundColor: Colors.grey[800],
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: DatePickerWidget(
+                  looping: false, // default is not looping
+                  firstDate: DateTime.now(),
+                  //  lastDate: DateTime(2002, 1, 1),
+                  //              initialDate: DateTime.now(),// DateTime(1994),
+                  dateFormat:
+                      // "MM-dd(E)",
+                      "dd/MMMM/yyyy",
+                  locale: DatePicker.localeFromString('th'),
+                  onChange: (DateTime newDate, _) {
+                    setState(() {
+                      _selectedDate = newDate;
+                    });
+                    print(_selectedDate);
+                  },
+                  pickerTheme: DateTimePickerTheme(
+                    backgroundColor: Colors.transparent,
+                    itemTextStyle: TextStyle(color: Colors.white, fontSize: 19),
+                    dividerColor: Colors.white,
+                    dividerThickness: 0.5,
                   ),
                 ),
-                Text("${_selectedDate ?? ''}"),
-              ],
-            ),
+              ),
+              Text("${_selectedDate ?? ''}"),
+            ],
           ),
         ),
       ),

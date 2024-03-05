@@ -16,12 +16,13 @@ const double DATETIME_PICKER_TITLE_HEIGHT = 36.0;
 const double DATETIME_PICKER_ITEM_HEIGHT = 36.0;
 
 /// Default value of DatePicker's item [TextStyle].
-const TextStyle DATETIME_PICKER_ITEM_TEXT_STYLE =
-    const TextStyle(color: Colors.black, fontSize: 16.0);
+const TextStyle DATETIME_PICKER_ITEM_TEXT_STYLE = const TextStyle(color: Colors.black, fontSize: 16.0);
 
 const Color DATETIME_PICKER_ITEM_TEXT_COLOR = Colors.black;
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_SMALL = 15;
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_BIG = 17;
+
+const double DATETIME_PICKER_DIVIDER_THICKNESS = 2;
 
 /// To support both stable and beta channels until
 /// 'DiagnosticableMixin' is officially deprecated.
@@ -54,11 +55,14 @@ class DateTimePickerTheme {
     this.itemHeight = DATETIME_PICKER_ITEM_HEIGHT,
     this.itemTextStyle = DATETIME_PICKER_ITEM_TEXT_STYLE,
     this.dividerColor,
+    this.dividerThickness = DATETIME_PICKER_DIVIDER_THICKNESS,
   });
 
   static const DateTimePickerTheme Default = const DateTimePickerTheme();
 
   /// DatePicker's background color.
+  ///
+  /// If this is null then the [DATETIME_PICKER_BACKGROUND_COLOR] is used.
   final Color backgroundColor;
 
   /// Default cancel widget's [TextStyle].
@@ -80,17 +84,32 @@ class DateTimePickerTheme {
   final bool showTitle;
 
   /// The value of DatePicker's height.
+  ///
+  /// If this is null then the [DATETIME_PICKER_HEIGHT] is used.
   final double pickerHeight;
 
   /// The value of DatePicker's title height.
+  ///
+  /// If this is null then the [DATETIME_PICKER_TITLE_HEIGHT] is used.
   final double titleHeight;
 
-  /// The value of DatePicker's column height.
+  /// The value of DatePicker's row height.
+  ///
+  /// If this is null then the [DATETIME_PICKER_ITEM_HEIGHT] is used.
   final double itemHeight;
 
   /// The value of DatePicker's column [TextStyle].
+  ///
+  /// If this is null then the [DATETIME_PICKER_ITEM_TEXT_STYLE] is used.
   final TextStyle itemTextStyle;
 
-  /// The value of DatePicker's Divider Color [TextStyle].
+  /// The value of DatePicker's Divider Color [Color].
   final Color? dividerColor;
+
+  /// The value of DatePicker's Divider Thickness.
+  ///
+  /// A divider with a [dividerThickness] of 0.0 is always drawn as a line with a height of exactly one device pixel.
+  ///
+  /// If this is null, then the [DATETIME_PICKER_DIVIDER_THICKNESS] is used.
+  final double dividerThickness;
 }
