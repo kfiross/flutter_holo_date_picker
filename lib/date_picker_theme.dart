@@ -18,11 +18,23 @@ const double DATETIME_PICKER_ITEM_HEIGHT = 36.0;
 /// Default value of DatePicker's item [TextStyle].
 const TextStyle DATETIME_PICKER_ITEM_TEXT_STYLE = const TextStyle(color: Colors.black, fontSize: 16.0);
 
+/// Default value of DatePicker's item text [Color].
 const Color DATETIME_PICKER_ITEM_TEXT_COLOR = Colors.black;
+
+/// Default value of DatePicker's item small size text.
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_SMALL = 15;
+
+/// Default value of DatePicker's item big size text.
 const double DATETIME_PICKER_ITEM_TEXT_SIZE_BIG = 17;
 
+/// Default value of DatePicker's dividers.
 const double DATETIME_PICKER_DIVIDER_THICKNESS = 2;
+
+/// Default value of DatePicker's relative ratio between this its height and the simulated cylinder's diameter.
+const double DATETIME_PICKER_CURVE_RATIO = 1.1;
+
+/// Default value of DatePicker's dividers.
+const double DATETIME_PICKER_ITEM_SPACE = 0.95;
 
 /// To support both stable and beta channels until
 /// 'DiagnosticableMixin' is officially deprecated.
@@ -56,6 +68,8 @@ class DateTimePickerTheme {
     this.itemTextStyle = DATETIME_PICKER_ITEM_TEXT_STYLE,
     this.dividerColor,
     this.dividerThickness = DATETIME_PICKER_DIVIDER_THICKNESS,
+    this.curveRatio = DATETIME_PICKER_CURVE_RATIO,
+    this.itemSpace = DATETIME_PICKER_ITEM_SPACE,
   });
 
   static const DateTimePickerTheme Default = const DateTimePickerTheme();
@@ -85,31 +99,41 @@ class DateTimePickerTheme {
 
   /// The value of DatePicker's height.
   ///
-  /// If this is null then the [DATETIME_PICKER_HEIGHT] is used.
+  /// If this is null, then the [DATETIME_PICKER_HEIGHT] is used.
   final double pickerHeight;
 
   /// The value of DatePicker's title height.
   ///
-  /// If this is null then the [DATETIME_PICKER_TITLE_HEIGHT] is used.
+  /// If this is null, then the [DATETIME_PICKER_TITLE_HEIGHT] is used.
   final double titleHeight;
 
   /// The value of DatePicker's row height.
   ///
-  /// If this is null then the [DATETIME_PICKER_ITEM_HEIGHT] is used.
+  /// If this is null, then the [DATETIME_PICKER_ITEM_HEIGHT] is used.
   final double itemHeight;
 
   /// The value of DatePicker's column [TextStyle].
   ///
-  /// If this is null then the [DATETIME_PICKER_ITEM_TEXT_STYLE] is used.
+  /// If this is null, then the [DATETIME_PICKER_ITEM_TEXT_STYLE] is used.
   final TextStyle itemTextStyle;
 
-  /// The value of DatePicker's Divider Color [Color].
+  /// The value of DatePicker's divider color [Color].
   final Color? dividerColor;
 
-  /// The value of DatePicker's Divider Thickness.
+  /// The value of DatePicker's divider thickness.
   ///
   /// A divider with a [dividerThickness] of 0.0 is always drawn as a line with a height of exactly one device pixel.
   ///
   /// If this is null, then the [DATETIME_PICKER_DIVIDER_THICKNESS] is used.
   final double dividerThickness;
+
+  /// Relative ratio between this picker's height and the simulated cylinder's diameter.
+  ///
+  /// If this is null, then the [DATETIME_PICKER_CURVE_RATIO] is used.
+  final double curveRatio;
+
+  /// The value of DatePicker's item spacing.
+  ///
+  /// If this is null, then the [DATETIME_PICKER_ITEM_SPACE] is used.
+  final double itemSpace;
 }

@@ -96,7 +96,6 @@ class _WidgetPageState extends State<WidgetPage> {
                     backgroundColor: Colors.transparent,
                     itemTextStyle: TextStyle(color: Colors.white, fontSize: 19),
                     dividerColor: Colors.white,
-                    dividerThickness: 0.5,
                   ),
                 ),
               ),

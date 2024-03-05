@@ -187,8 +187,8 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
                 selectionOverlay: Container(),
                 backgroundColor: widget.pickerTheme!.backgroundColor,
                 scrollController: scrollCtrl,
-                squeeze: 0.95,
-                diameterRatio: 1.5,
+                squeeze: widget.pickerTheme!.itemSpace,
+                diameterRatio: widget.pickerTheme!.curveRatio,
                 itemExtent: widget.pickerTheme!.itemHeight,
                 onSelectedItemChanged: valueChanged,
                 looping: widget.looping,
@@ -207,20 +207,24 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Divider(
-                  color: widget.pickerTheme!.dividerColor ?? widget.pickerTheme!.itemTextStyle.color,
-                  height: 1,
-                  thickness: widget.pickerTheme!.dividerThickness,
-                  indent: MediaQuery.of(context).size.width * 0.02,
-                  endIndent: MediaQuery.of(context).size.width * 0.02,
+                Flexible(
+                  child: Divider(
+                    color: widget.pickerTheme!.dividerColor ?? widget.pickerTheme!.itemTextStyle.color,
+                    height: 1,
+                    thickness: widget.pickerTheme!.dividerThickness,
+                    indent: MediaQuery.of(context).size.width * 0.02,
+                    endIndent: MediaQuery.of(context).size.width * 0.02,
+                  ),
                 ),
-                SizedBox(height: widget.pickerTheme!.itemHeight),
-                Divider(
-                  color: widget.pickerTheme!.dividerColor ?? widget.pickerTheme!.itemTextStyle.color,
-                  height: 1,
-                  thickness: widget.pickerTheme!.dividerThickness,
-                  indent: MediaQuery.of(context).size.width * 0.02,
-                  endIndent: MediaQuery.of(context).size.width * 0.02,
+                Flexible(child: SizedBox(height: widget.pickerTheme!.itemHeight)),
+                Flexible(
+                  child: Divider(
+                    color: widget.pickerTheme!.dividerColor ?? widget.pickerTheme!.itemTextStyle.color,
+                    height: 1,
+                    thickness: widget.pickerTheme!.dividerThickness,
+                    indent: MediaQuery.of(context).size.width * 0.02,
+                    endIndent: MediaQuery.of(context).size.width * 0.02,
+                  ),
                 ),
               ],
             ),
