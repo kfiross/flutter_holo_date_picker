@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_holo_date_picker/widget/date_ext.dart';
 
-import 'date_picker_theme.dart';
 import 'date_picker_constants.dart';
+import 'date_picker_theme.dart';
 import 'i18n/date_picker_i18n.dart';
 import 'widget/date_picker_widget.dart';
 
@@ -91,6 +91,9 @@ class DatePicker {
 
       case 'pl':
         return DateTimePickerLocale.pl;
+
+      case 'lo':
+        return DateTimePickerLocale.lo;
 
       default:
         return DateTimePickerLocale.en_us;

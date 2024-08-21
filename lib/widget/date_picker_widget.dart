@@ -1,11 +1,12 @@
 import 'dart:math';
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
-import '../date_time_formatter.dart';
-import '../date_picker_theme.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 import '../date_picker_constants.dart';
+import '../date_picker_theme.dart';
+import '../date_time_formatter.dart';
 import '../i18n/date_picker_i18n.dart';
 
 /// Solar months of 31 days.
@@ -103,12 +104,9 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      //padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 0),
-      child: GestureDetector(
-        child: Material(
-            color: Colors.transparent, child: _renderPickerView(context)),
-      ),
+    return Material(
+      color: Colors.transparent,
+      child: _renderPickerView(context),
     );
   }
 
@@ -181,85 +179,98 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       pickers.add(pickerColumn);
     });
     return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: pickers);
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: pickers,
+    );
   }
 
-  Widget _renderDatePickerColumnComponent(
-      {required FixedExtentScrollController? scrollCtrl,
-      required List<int> valueRange,
-      required String format,
-      required ValueChanged<int> valueChanged,
-      double? fontSize}) {
+  Widget _renderDatePickerColumnComponent({
+    required FixedExtentScrollController? scrollCtrl,
+    required List<int> valueRange,
+    required String format,
+    required ValueChanged<int> valueChanged,
+    double? fontSize,
+  }) {
     return Expanded(
       flex: 1,
       child: Stack(
         fit: StackFit.loose,
         children: <Widget>[
           Positioned(
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 7, vertical: 18),
-              height: widget.pickerTheme!.pickerHeight,
-              decoration:
-                  BoxDecoration(color: widget.pickerTheme!.backgroundColor),
-              child: CupertinoPicker(
-                selectionOverlay: Container(),
-                backgroundColor: widget.pickerTheme!.backgroundColor,
-                scrollController: scrollCtrl,
-                squeeze: 0.95,
-                diameterRatio: 1.5,
-                itemExtent: widget.pickerTheme!.itemHeight,
-                onSelectedItemChanged: valueChanged,
-                looping: widget.looping,
-                children: List<Widget>.generate(
-                  valueRange.last - valueRange.first + 1,
-                  (index) {
-                    return _renderDatePickerItemComponent(
-                      valueRange.first + index,
-                      format,
-                      fontSize,
-                    );
-                  },
+            child: Center(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 7, vertical: 18),
+                height: widget.pickerTheme!.pickerHeight,
+                decoration:
+                    BoxDecoration(color: widget.pickerTheme!.backgroundColor),
+                child: CupertinoPicker(
+                  selectionOverlay: Container(),
+                  backgroundColor: widget.pickerTheme!.backgroundColor,
+                  scrollController: scrollCtrl,
+                  squeeze: 0.95,
+                  diameterRatio: 1.5,
+                  itemExtent: widget.pickerTheme!.itemHeight,
+                  onSelectedItemChanged: valueChanged,
+                  looping: widget.looping,
+                  children: List<Widget>.generate(
+                    valueRange.last - valueRange.first + 1,
+                    (index) {
+                      return _renderDatePickerItemComponent(
+                        valueRange.first + index,
+                        format,
+                        fontSize,
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
           ),
           Positioned(
             child: Container(
-                margin: const EdgeInsets.only(top: 63),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                    Expanded(
-                      child: Divider(
-                        color: widget.pickerTheme!.dividerColor ??
-                            widget.pickerTheme!.itemTextStyle.color,
-                        height: 1,
-                        thickness: 2,
-                      ),
+              margin: EdgeInsets.only(
+                top: (widget.pickerTheme!.pickerHeight / 2) -
+                    (widget.pickerTheme!.itemHeight / 2),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                  Expanded(
+                    child: Divider(
+                      color: widget.pickerTheme!.dividerColor ??
+                          widget.pickerTheme!.itemTextStyle.color,
+                      height: 1,
+                      thickness: 2,
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02)
-                  ],
-                )),
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.02)
+                ],
+              ),
+            ),
           ),
           Positioned(
             child: Container(
-                margin: const EdgeInsets.only(top: 99),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                    Expanded(
-                      child: Divider(
-                        color: widget.pickerTheme!.dividerColor ??
-                            widget.pickerTheme!.itemTextStyle.color,
-                        height: 1,
-                        thickness: 2,
-                      ),
+              margin: EdgeInsets.only(
+                top: (widget.pickerTheme!.pickerHeight / 2) +
+                    (widget.pickerTheme!.itemHeight / 2),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                  Expanded(
+                    child: Divider(
+                      color: widget.pickerTheme!.dividerColor ??
+                          widget.pickerTheme!.itemTextStyle.color,
+                      height: 1,
+                      thickness: 2,
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                  ],
-                )),
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                ],
+              ),
+            ),
           ),
         ],
       ),
