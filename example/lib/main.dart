@@ -97,7 +97,7 @@ class _WidgetPageState extends State<WidgetPage> {
                     dateFormat:
                         // "MM-dd(E)",
                         "dd/MMMM/yyyy",
-                    locale: DatePicker.localeFromString('th'),
+                    locale: DatePicker.localeFromString('lo'),
                     onChange: (DateTime newDate, _) {
                       setState(() {
                         _selectedDate = newDate;
@@ -109,6 +109,9 @@ class _WidgetPageState extends State<WidgetPage> {
                       itemTextStyle:
                           TextStyle(color: Colors.white, fontSize: 19),
                       dividerColor: Colors.white,
+                      // pickerHeight: 400,
+                      // itemHeight: 80,
+                      // titleHeight: 400,
                     ),
                   ),
                 ),
