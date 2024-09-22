@@ -1,3 +1,14 @@
+## [2.0.0]
+**Major update!!**
+
+Updated to minimum **Flutter v3.19**
+
+Added a lot of customizations parameters:
+  - dividerThickness (2 is the default).
+  - diameterRatio (2 is the default).
+  - dividerSpacing (4 is the default).
+  - squeeze: (1.05 is the default).
+
 ## [1.1.3]
 * Fixed bug that when user select today's date - date is `null`
 
