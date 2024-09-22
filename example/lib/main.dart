@@ -38,8 +38,8 @@ class MyHomePage extends StatelessWidget {
                 firstDate: DateTime(2020),
                 lastDate: DateTime(2090),
                 dateFormat: "dd-MMMM-yyyy",
-                locale: DateTimePickerLocale.th,
-                looping: true,
+                locale: DateTimePickerLocale.en_us,
+                looping: false,
               );
 
               final snackBar =

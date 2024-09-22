@@ -42,17 +42,17 @@ class DateTimePickerTheme {
   /// [itemHeight] The value of DatePicker's column height.
   /// [itemTextStyle] The value of DatePicker's column [TextStyle].
   const DateTimePickerTheme({
-    this.backgroundColor: DATETIME_PICKER_BACKGROUND_COLOR,
+    this.backgroundColor = DATETIME_PICKER_BACKGROUND_COLOR,
     this.cancelTextStyle,
     this.confirmTextStyle,
     this.cancel,
     this.confirm,
     this.title,
-    this.showTitle: DATETIME_PICKER_SHOW_TITLE_DEFAULT,
-    this.pickerHeight: DATETIME_PICKER_HEIGHT,
-    this.titleHeight: DATETIME_PICKER_TITLE_HEIGHT,
-    this.itemHeight: DATETIME_PICKER_ITEM_HEIGHT,
-    this.itemTextStyle: DATETIME_PICKER_ITEM_TEXT_STYLE,
+    this.showTitle = DATETIME_PICKER_SHOW_TITLE_DEFAULT,
+    this.pickerHeight = DATETIME_PICKER_HEIGHT,
+    this.titleHeight = DATETIME_PICKER_TITLE_HEIGHT,
+    this.itemHeight = DATETIME_PICKER_ITEM_HEIGHT,
+    this.itemTextStyle = DATETIME_PICKER_ITEM_TEXT_STYLE,
     this.dividerColor,
   });
 

@@ -18,13 +18,13 @@ class DatePickerWidget extends StatefulWidget {
     this.firstDate,
     this.lastDate,
     this.initialDate,
-    this.dateFormat: DATETIME_PICKER_DATE_FORMAT,
-    this.locale: DATETIME_PICKER_LOCALE_DEFAULT,
-    this.pickerTheme: DateTimePickerTheme.Default,
+    this.dateFormat = DATETIME_PICKER_DATE_FORMAT,
+    this.locale = DATETIME_PICKER_LOCALE_DEFAULT,
+    this.pickerTheme = DateTimePickerTheme.Default,
     this.onCancel,
     this.onChange,
     this.onConfirm,
-    this.looping: false,
+    this.looping = false,
   }) : super(key: key) {
     DateTime minTime = firstDate ?? DateTime.parse(DATE_PICKER_MIN_DATETIME);
     DateTime maxTime = lastDate ?? DateTime.parse(DATE_PICKER_MAX_DATETIME);
