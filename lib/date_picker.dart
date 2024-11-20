@@ -182,7 +182,7 @@ class DatePicker {
           dateFormat: dateFormat,
           locale: locale,
           pickerTheme: DateTimePickerTheme(
-            backgroundColor: backgroundColor,
+            backgroundColor: Colors.transparent,
             itemTextStyle: itemTextStyle ?? TextStyle(color: textColor),
           ),
           onChange: ((DateTime date, list) {
