@@ -120,6 +120,7 @@ class DatePicker {
     DateTimePickerMode pickerMode = DateTimePickerMode.date,
     Color? backgroundColor,
     Color? textColor,
+    Color? barrierColor,
     TextStyle? itemTextStyle,
     String? titleText,
     String? confirmText,
@@ -196,6 +197,7 @@ class DatePicker {
           reverse ? listButtonActions.reversed.toList() : listButtonActions,
     );
     return showDialog(
+        barrierColor: barrierColor,
         useRootNavigator: false,
         context: context,
         builder: (context) => datePickerDialog);
