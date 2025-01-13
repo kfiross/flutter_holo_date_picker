@@ -134,6 +134,9 @@ enum DateTimePickerLocale {
   /// Thai (TH)
   th,
 
+  /// Thai (TH) with year CE
+  th_CE,
+
   /// Lithuaniana (LT)
   lt,
 
@@ -182,6 +185,7 @@ const Map<DateTimePickerLocale, _StringsI18n> datePickerI18n = {
   DateTimePickerLocale.nl: const _StringsNl(),
   DateTimePickerLocale.fr: const _StringsFr(),
   DateTimePickerLocale.th: const _StringsTh(),
+  DateTimePickerLocale.th_CE: const _StringsTh(),
   DateTimePickerLocale.lt: const _StringsLt(),
   DateTimePickerLocale.ht: const _StringsHt(),
   DateTimePickerLocale.sv: const _StringsSv(),
