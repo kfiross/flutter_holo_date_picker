@@ -20,6 +20,9 @@ class DatePicker {
   /// languageCode: [languageCode] Locale's String language code
   static DateTimePickerLocale localeFromString(String languageCode) {
     switch (languageCode) {
+
+      case 'ar_EG':
+        return DateTimePickerLocale.ar_EG;
       case 'zh':
         return DateTimePickerLocale.zh_cn;
 
