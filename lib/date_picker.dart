@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_holo_date_picker/widget/date_ext.dart';
 
 import 'date_picker_theme.dart';
@@ -142,7 +142,7 @@ class DatePicker {
         onPressed: () {
           Navigator.pop(context);
         },
-      )
+      ),
     ];
 
     // handle the range of datetime
@@ -160,8 +160,8 @@ class DatePicker {
 
     if (backgroundColor == null)
       backgroundColor = DateTimePickerTheme.Default.backgroundColor;
-//    if (itemTextStyle == null)
-//      itemTextStyle = DateTimePickerTheme.Default.itemTextStyle;
+    //    if (itemTextStyle == null)
+    //      itemTextStyle = DateTimePickerTheme.Default.itemTextStyle;
 
     if (textColor == null)
       textColor = DateTimePickerTheme.Default.itemTextStyle.color;
@@ -192,13 +192,15 @@ class DatePicker {
           looping: looping,
         ),
       ),
-      actions:
-          reverse ? listButtonActions.reversed.toList() : listButtonActions,
+      actions: reverse
+          ? listButtonActions.reversed.toList()
+          : listButtonActions,
     );
     return showDialog(
-        useRootNavigator: false,
-        context: context,
-        builder: (context) => datePickerDialog);
+      useRootNavigator: false,
+      context: context,
+      builder: (context) => datePickerDialog,
+    );
   }
 }
 
@@ -247,14 +249,18 @@ class _DatePickerRoute<T> extends PopupRoute<T> {
   @override
   AnimationController createAnimationController() {
     assert(_animationController == null);
-    _animationController =
-        BottomSheet.createAnimationController(navigator!.overlay!);
+    _animationController = BottomSheet.createAnimationController(
+      navigator!.overlay!,
+    );
     return _animationController!;
   }
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+  ) {
     double height = pickerTheme!.pickerHeight;
     if (pickerTheme!.title != null || pickerTheme!.showTitle) {
       height += pickerTheme!.titleHeight;
@@ -278,7 +284,7 @@ class _DatePickerComponent extends StatelessWidget {
   final double _pickerHeight;
 
   _DatePickerComponent({required this.route, required pickerHeight})
-      : this._pickerHeight = pickerHeight;
+    : this._pickerHeight = pickerHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -299,8 +305,10 @@ class _DatePickerComponent extends StatelessWidget {
         builder: (BuildContext context, Widget? child) {
           return ClipRect(
             child: CustomSingleChildLayout(
-              delegate: _BottomPickerLayout(route.animation!.value,
-                  contentHeight: _pickerHeight),
+              delegate: _BottomPickerLayout(
+                route.animation!.value,
+                contentHeight: _pickerHeight,
+              ),
               child: pickerWidget,
             ),
           );
